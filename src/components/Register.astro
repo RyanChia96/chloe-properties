@@ -1,0 +1,158 @@
+---
+const contactMethods = ['WhatsApp', 'Email', 'Call'];
+const layouts = [
+  'Type A — 1,880 sqft',
+  'Type B1 / B1(M) — 1,574 sqft',
+  'Type C1 — 1,165 sqft',
+  'Not sure yet — advise me',
+];
+
+const chipBase =
+  'chip flex-1 min-w-[96px] border p-3 rounded-[40px] text-[13.5px] font-semibold cursor-pointer tracking-[0.02em] text-center transition-colors duration-200';
+const chipActive = 'border-accent bg-accent text-white';
+const chipInactive = 'border-line-input bg-transparent text-[#4a473d]';
+
+const fieldClass = 'flex flex-col gap-1.5';
+const labelClass = 'text-[11.5px] font-semibold tracking-[0.1em] uppercase text-muted';
+const inputClass =
+  'border-0 border-b border-line-input bg-transparent px-0.5 py-3 text-base text-ink outline-none rounded-none w-full transition-colors duration-200 focus:border-accent';
+---
+
+<section id="register" class="py-[clamp(90px,12vw,170px)] px-gutter">
+  <div class="max-w-wrap mx-auto">
+    <div class="text-center mb-[clamp(52px,7vw,90px)]">
+      <p class="text-[13px] tracking-[0.3em] uppercase text-accent font-bold mb-[clamp(24px,3vw,36px)]">Be the first to know</p>
+      <h2 class="font-serif font-semibold text-[clamp(32px,4.4vw,60px)] leading-[1.08] tracking-[-0.01em]">The first to <span class="text-accent">choose.</span></h2>
+      <p class="text-[clamp(15.5px,1.6vw,18px)] leading-[1.7] text-body font-light max-w-[52ch] mt-[clamp(24px,3vw,36px)] mx-auto">
+        A limited preview, extended only by invitation. Reserve your spot now and your dedicated
+        agent will be in touch with priority access, pricing and floor plans.
+      </p>
+    </div>
+
+    <div class="max-w-[1080px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[clamp(40px,5vw,72px)] items-start">
+      <div class="flex items-center gap-[18px] p-6 bg-paper rounded-[6px]">
+        <span class="w-[58px] h-[58px] rounded-full bg-forest text-accent flex items-center justify-center flex-none font-serif text-[25px] font-semibold">CT</span>
+        <div>
+          <div class="font-serif text-[22px] font-semibold leading-[1.1]">Chloe Tan</div>
+          <div class="text-[13px] text-muted mt-[3px]">REN 12345 · Property Agent</div>
+          <div class="flex flex-wrap gap-x-4 gap-y-1.5 mt-[9px] text-[13.5px]">
+            <a href="tel:+60123456789" class="text-[#4a473d] font-medium transition-colors duration-200 hover:text-accent">+60 12-345 6789</a>
+            <a href="mailto:chloe.tan@example.com" class="text-[#4a473d] font-medium transition-colors duration-200 hover:text-accent">chloe.tan@example.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div id="thanks" class="text-center py-[34px] px-2.5 bg-paper rounded-[6px]" hidden>
+          <div class="w-[60px] h-[60px] rounded-full bg-accent/[0.16] flex items-center justify-center mx-auto mb-[22px]">
+            <svg class="text-accent" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          </div>
+          <h3 class="font-serif text-[30px] font-semibold mb-3">Registration received</h3>
+          <p class="text-[15px] text-[#6b6456] leading-[1.64] max-w-[38ch] mx-auto">Thank you for your interest in PJ New Launch Private Lift. Chloe will be in touch with you shortly.</p>
+        </div>
+
+        <form id="enquiry" class="flex flex-col gap-[18px]" novalidate>
+          <div class={fieldClass}>
+            <label for="f-name" class={labelClass}>Full name</label>
+            <input id="f-name" name="name" class={inputClass} placeholder="Your name" required />
+          </div>
+          <div class="flex gap-5 flex-wrap">
+            <div class={`${fieldClass} flex-1 min-w-[150px]`}>
+              <label for="f-email" class={labelClass}>Email</label>
+              <input id="f-email" name="email" type="email" class={inputClass} placeholder="you@email.com" required />
+            </div>
+            <div class={`${fieldClass} flex-1 min-w-[150px]`}>
+              <label for="f-phone" class={labelClass}>Mobile</label>
+              <input id="f-phone" name="phone" class={inputClass} placeholder="+60" />
+            </div>
+          </div>
+          <div class={fieldClass}>
+            <label for="f-interest" class={labelClass}>Layout of interest</label>
+            <select id="f-interest" name="interest" class={inputClass}>
+              {layouts.map((l) => <option>{l}</option>)}
+            </select>
+          </div>
+          <div class={fieldClass}>
+            <span class={labelClass}>Preferred contact method</span>
+            <div class="flex gap-2.5 flex-wrap">
+              {
+                contactMethods.map((m, i) => (
+                  <button
+                    type="button"
+                    class:list={[chipBase, i === 0 ? chipActive : chipInactive]}
+                    data-contact={m}
+                  >
+                    {m}
+                  </button>
+                ))
+              }
+            </div>
+            <input type="hidden" name="contact" value="WhatsApp" />
+          </div>
+          <button type="submit" class="mt-2.5 bg-accent text-white border-0 rounded-[40px] p-[17px] text-[13px] font-semibold cursor-pointer tracking-[0.14em] uppercase transition-colors duration-[250ms] hover:bg-accent-hover">Register Interest</button>
+          <p class="text-[11.5px] text-muted leading-[1.55]">
+            By submitting, you consent to be contacted regarding PJ New Launch Private Lift in
+            accordance with the developer's Personal Data Protection Policy.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const ACTIVE = ['border-accent', 'bg-accent', 'text-white'];
+  const INACTIVE = ['border-line-input', 'bg-transparent', 'text-[#4a473d]'];
+
+  const form = document.getElementById('enquiry') as HTMLFormElement | null;
+  const thanks = document.getElementById('thanks');
+
+  if (form) {
+    // Single-select contact-method chips
+    const chips = Array.from(form.querySelectorAll<HTMLButtonElement>('.chip'));
+    const contactInput = form.querySelector<HTMLInputElement>('input[name="contact"]');
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        chips.forEach((c) => {
+          c.classList.remove(...ACTIVE);
+          c.classList.add(...INACTIVE);
+        });
+        chip.classList.remove(...INACTIVE);
+        chip.classList.add(...ACTIVE);
+        if (contactInput) contactInput.value = chip.dataset.contact ?? '';
+      });
+    });
+
+    // Clear inline error styling on input
+    form.querySelectorAll<HTMLInputElement>('input').forEach((input) => {
+      input.addEventListener('input', () => {
+        input.style.borderBottomColor = '';
+      });
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!thanks) return;
+
+      const name = form.querySelector<HTMLInputElement>('[name="name"]');
+      const email = form.querySelector<HTMLInputElement>('[name="email"]');
+      if (!name || !email) return;
+
+      let valid = true;
+      if (!name.value.trim()) {
+        name.style.borderBottomColor = '#c0392b';
+        valid = false;
+      }
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+      if (!emailOk) {
+        email.style.borderBottomColor = '#c0392b';
+        valid = false;
+      }
+      if (!valid) return;
+
+      form.hidden = true;
+      thanks.hidden = false;
+      thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+</script>

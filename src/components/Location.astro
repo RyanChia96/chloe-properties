@@ -1,0 +1,91 @@
+---
+const stats = [
+  { title: 'Heart of PJ', note: 'A central, mature Petaling Jaya address.' },
+  { title: 'Facing Plaza 33', note: 'Fronting Jalan Kemajuan & Jalan 13/1.' },
+  { title: 'By invitation', note: 'A limited preview, extended only to a select few.' },
+  { title: 'Trusted developer', note: 'By an established Malaysian developer.' },
+];
+
+const groups = [
+  {
+    title: 'Shopping',
+    items: [
+      ['Jaya Shopping Centre', '850 m'],
+      ['Jaya 33', '1.3 km'],
+      ['Jaya One', '2.1 km'],
+      ['Mid Valley Megamall', '5.3 km'],
+    ],
+  },
+  {
+    title: 'Healthcare',
+    items: [
+      ['Hospital Picaso', '1.3 km'],
+      ['Columbia Asia Hospital PJ', '1.9 km'],
+      ['University Malaya Medical Centre', '2.2 km'],
+      ['Assunta Hospital', '3.4 km'],
+    ],
+  },
+  {
+    title: 'Education',
+    items: [
+      ['SK Sri Petaling', '600 m'],
+      ["Bukit Bintang Boys' Secondary", '700 m'],
+      ['University Malaya', '3.3 km'],
+      ['Nobel International School', '6.5 km'],
+    ],
+  },
+  {
+    title: 'Connectivity',
+    items: [
+      ['Phileo Damansara MRT', '3.0 km'],
+      ['Asia Jaya LRT', '3.5 km'],
+      ['Federal Highway', 'Direct'],
+      ['LDP / Sprint Expressway', 'Nearby'],
+    ],
+  },
+];
+---
+
+<section id="location" class="bg-forest text-forest-text py-[clamp(80px,10vw,150px)] px-gutter">
+  <div class="max-w-wrap mx-auto">
+    <p class="text-[13px] tracking-[0.3em] uppercase text-accent font-semibold mb-[clamp(24px,3vw,40px)]">location</p>
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-[clamp(44px,6vw,72px)]">
+      <h2 class="font-serif font-semibold text-[clamp(26px,3.2vw,42px)] leading-[1.15] tracking-[-0.008em] max-w-[14ch]">In the heart of Petaling Jaya</h2>
+      <p class="text-[15.5px] text-[rgba(242,237,226,0.78)] max-w-[44ch] leading-[1.7] font-light">
+        The development sits along Jalan Kemajuan and Jalan 13/1, facing Plaza 33 — where the calm of an
+        established address meets the convenience of the city. Quietly set apart, yet effortlessly
+        connected to everything that matters.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-[clamp(24px,3vw,40px)] py-[clamp(32px,4vw,48px)] border-t border-b border-[rgba(242,237,226,0.16)] mb-[clamp(44px,6vw,72px)]">
+      {
+        stats.map((s) => (
+          <div>
+            <h3 class="font-serif text-[23px] font-semibold mb-2">{s.title}</h3>
+            <p class="text-[13.5px] leading-[1.6] text-[rgba(242,237,226,0.66)] font-light">{s.note}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-[clamp(24px,3vw,40px)]">
+      {
+        groups.map((g) => (
+          <div>
+            <h4 class="text-[11.5px] tracking-[0.16em] uppercase text-accent font-bold mb-[18px]">{g.title}</h4>
+            <ul class="list-none flex flex-col gap-[13px]">
+              {g.items.map(([name, dist]) => (
+                <li class="flex justify-between gap-3 text-sm text-[rgba(242,237,226,0.82)]">
+                  <span>{name}</span>
+                  <span class="text-[rgba(242,237,226,0.45)] whitespace-nowrap">{dist}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+    <p class="text-[12.5px] text-[rgba(242,237,226,0.4)] mt-[30px] leading-[1.6]">Distances are approximate and for reference only.</p>
+  </div>
+</section>

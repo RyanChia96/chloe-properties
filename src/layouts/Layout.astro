@@ -1,0 +1,117 @@
+---
+import '../styles/global.css';
+
+const apartmentComplex = {
+  '@context': 'https://schema.org',
+  '@type': 'ApartmentComplex',
+  name: 'PJ New Launch Private Lift',
+  description:
+    'An exclusive, low-density collection of luxury residences in the heart of Petaling Jaya. Layouts range from 1,165 to 1,880 sqft, each with its own private lift lobby, and up to three carparks.',
+  url: 'https://pjnewlaunchprivatelift.com/',
+  image: 'https://pjnewlaunchprivatelift.com/images/og-image.jpg',
+  numberOfBedrooms: '3-4',
+  petsAllowed: true,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Petaling Jaya',
+    addressRegion: 'Selangor',
+    addressCountry: 'MY',
+  },
+  developer: {
+    '@type': 'Organization',
+    name: 'Established Malaysian Developer',
+  },
+  containsPlace: [
+    {
+      '@type': 'Apartment',
+      name: 'Type A',
+      floorSize: { '@type': 'QuantitativeValue', value: 1880, unitCode: 'FTK' },
+      numberOfBedrooms: 4,
+      numberOfBathroomsTotal: 4,
+    },
+    {
+      '@type': 'Apartment',
+      name: 'Type B1 / B1(M)',
+      floorSize: { '@type': 'QuantitativeValue', value: 1574, unitCode: 'FTK' },
+      numberOfBedrooms: 3,
+      numberOfBathroomsTotal: 4,
+    },
+    {
+      '@type': 'Apartment',
+      name: 'Type C1',
+      floorSize: { '@type': 'QuantitativeValue', value: 1165, unitCode: 'FTK' },
+      numberOfBedrooms: 3,
+      numberOfBathroomsTotal: 2,
+    },
+  ],
+};
+
+const realEstateAgent = {
+  '@context': 'https://schema.org',
+  '@type': 'RealEstateAgent',
+  name: 'Chloe Tan',
+  jobTitle: 'Property Agent',
+  identifier: 'REN 12345',
+  telephone: '+60-12-345-6789',
+  email: 'chloe.tan@example.com',
+  areaServed: 'Petaling Jaya, Selangor, Malaysia',
+  knowsAbout: 'PJ New Launch Private Lift, luxury Petaling Jaya residences',
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/assets/pjpropertylogo.svg" />
+
+    <!-- ============ SEO ============ -->
+    <title>PJ New Launch Private Lift | Luxury Private-Lift Residences in Petaling Jaya — From 1,165 sqft</title>
+    <meta
+      name="description"
+      content="PJ New Launch Private Lift — an exclusive, low-density collection of luxury residences in the heart of PJ, facing Plaza 33. 3 to 4-bedroom layouts from 1,165 to 1,880 sqft, and a private lift lobby for every home. Register your interest with Chloe Tan."
+    />
+    <meta
+      name="keywords"
+      content="PJ new launch, private lift condo PJ, new launch Petaling Jaya, luxury condo PJ, private lift residences, Plaza 33 residence, low density condo Petaling Jaya, new launch private lift"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Chloe Tan, Property Agent" />
+    <link rel="canonical" href="https://pjnewlaunchprivatelift.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PJ New Launch Private Lift" />
+    <meta property="og:title" content="PJ New Launch Private Lift | Luxury Private-Lift Residences in Petaling Jaya" />
+    <meta
+      property="og:description"
+      content="An exclusive, low-density collection of luxury residences in the heart of Petaling Jaya, facing Plaza 33 — with a private lift lobby for every home. 3–4 bedroom layouts from 1,165 to 1,880 sqft. Register your interest today."
+    />
+    <meta property="og:image" content="https://pjnewlaunchprivatelift.com/images/og-image.jpg" />
+    <meta property="og:url" content="https://pjnewlaunchprivatelift.com/" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PJ New Launch Private Lift | Luxury Private-Lift Residences in Petaling Jaya" />
+    <meta
+      name="twitter:description"
+      content="An exclusive, low-density collection of luxury residences in the heart of Petaling Jaya, facing Plaza 33 — a private lift lobby for every home. 3–4 bedroom layouts from 1,165 to 1,880 sqft."
+    />
+    <meta name="twitter:image" content="https://pjnewlaunchprivatelift.com/images/og-image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ============ Structured data ============ -->
+    <script type="application/ld+json" set:html={JSON.stringify(apartmentComplex)} />
+    <script type="application/ld+json" set:html={JSON.stringify(realEstateAgent)} />
+  </head>
+  <body id="top">
+    <slot />
+  </body>
+</html>

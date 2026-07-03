@@ -1,0 +1,83 @@
+---
+const tagStyles = {
+  'tag-gold': 'bg-accent text-white',
+  'tag-dark': 'bg-forest text-forest-text',
+};
+
+const units = [
+  {
+    img: '/assets/floorplan-type-a.jfif',
+    alt: 'Type A floorplan — 4 bedrooms, 4 bathrooms',
+    tag: 'Largest layout',
+    tagClass: 'tag-gold',
+    name: 'Type A',
+    size: '1,880',
+    specs: '4 Bedrooms · 4 Bathrooms · 3 Carparks',
+    foot: 'Private lift lobby, 2m wide · Car park storage*',
+  },
+  {
+    img: '/assets/floorplan-type-b1.jfif',
+    alt: 'Type B1 floorplan — 3 bedrooms, 4 bathrooms',
+    tag: 'Extra bath option',
+    tagClass: 'tag-dark',
+    name: 'Type B1 / B1(M)',
+    size: '1,574',
+    specs: '3 Bedrooms · 4 Bathrooms · 2–3 Carparks',
+    foot: 'Private lift lobby, 2m wide · Car park storage*',
+  },
+  {
+    img: '/assets/floorplan-type-c1.jfif',
+    alt: 'Type C1 floorplan — 3 bedrooms, 2 bathrooms',
+    tag: 'Entry layout',
+    tagClass: 'tag-dark',
+    name: 'Type C1',
+    size: '1,165',
+    specs: '3 Bedrooms · 2 Bathrooms · 2 Carparks',
+    foot: 'Private lift lobby, 1.8m wide · Balcony',
+  },
+];
+---
+
+<section id="residences" class="py-[clamp(80px,10vw,150px)] px-gutter">
+  <div class="max-w-wrap mx-auto">
+    <p class="text-[13px] tracking-[0.3em] uppercase text-muted font-semibold mb-[clamp(24px,3vw,40px)]">residences</p>
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-[clamp(44px,6vw,72px)]">
+      <h2 class="font-serif font-semibold text-[clamp(26px,3.2vw,42px)] leading-[1.15] tracking-[-0.008em] max-w-[16ch]">Three layouts, each a balcony design</h2>
+      <p class="text-[15.5px] text-body max-w-[36ch] leading-[1.7] font-light">
+        A limited selection of homes, thoughtfully sized for families who value space, light and
+        privacy — each served by its own private lift lobby.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[clamp(24px,3vw,40px)]">
+      {
+        units.map((u) => (
+          <article class="flex flex-col">
+            <div class="relative rounded-[6px] overflow-hidden h-[clamp(260px,26vw,340px)] bg-paper-2">
+              <img class="w-full h-full object-contain" src={u.img} alt={u.alt} />
+              <span class:list={['absolute top-4 left-4 text-[11px] font-bold tracking-[0.1em] uppercase px-[13px] py-1.5 rounded-[2px]', tagStyles[u.tagClass]]}>{u.tag}</span>
+            </div>
+            <div class="pt-[26px] px-1 flex flex-col flex-1">
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="font-serif text-[32px] font-semibold leading-none">{u.name}</h3>
+                <span class="font-serif text-2xl font-semibold text-accent">
+                  {u.size} <span class="text-sm text-muted font-sans font-medium">sqft</span>
+                </span>
+              </div>
+              <p class="text-sm text-muted-2 mt-2.5 tracking-[0.04em]">{u.specs}</p>
+              <p class="text-sm text-body mt-2">{u.foot}</p>
+              <a href="#register" class="inline-flex items-center gap-2.5 font-semibold tracking-[0.14em] uppercase text-ink border-b border-accent transition-colors duration-200 hover:text-accent mt-5 text-[12.5px] pb-[5px] self-start">
+                Enquire
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+    <p class="text-[13px] text-muted mt-[clamp(32px,4vw,48px)] leading-[1.6] max-w-[70ch]">
+      *Car park storage available for selected units. All layouts and images are artist's
+      impressions and subject to variation by the developer and relevant authorities.
+    </p>
+  </div>
+</section>
