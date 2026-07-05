@@ -6,32 +6,32 @@ const tagStyles = {
 
 const units = [
   {
-    img: '/assets/floorplan-type-a.jfif',
+    img: '/assets/floorplan-type-a.webp',
     alt: 'Type A floorplan — 4 bedrooms, 4 bathrooms',
     tag: 'Largest layout',
     tagClass: 'tag-gold',
     name: 'Type A',
-    size: '1,880',
+    size: '1,8xx',
     specs: '4 Bedrooms · 4 Bathrooms · 3 Carparks',
     foot: 'Private lift lobby, 2m wide · Car park storage*',
   },
   {
-    img: '/assets/floorplan-type-b1.jfif',
+    img: '/assets/floorplan-type-b1.webp',
     alt: 'Type B1 floorplan — 3 bedrooms, 4 bathrooms',
     tag: 'Extra bath option',
     tagClass: 'tag-dark',
     name: 'Type B1 / B1(M)',
-    size: '1,574',
+    size: '1,5xx',
     specs: '3 Bedrooms · 4 Bathrooms · 2–3 Carparks',
     foot: 'Private lift lobby, 2m wide · Car park storage*',
   },
   {
-    img: '/assets/floorplan-type-c1.jfif',
+    img: '/assets/floorplan-type-c1.webp',
     alt: 'Type C1 floorplan — 3 bedrooms, 2 bathrooms',
     tag: 'Entry layout',
     tagClass: 'tag-dark',
     name: 'Type C1',
-    size: '1,165',
+    size: '1,1xx',
     specs: '3 Bedrooms · 2 Bathrooms · 2 Carparks',
     foot: 'Private lift lobby, 1.8m wide · Balcony',
   },
@@ -54,7 +54,7 @@ const units = [
         units.map((u) => (
           <article class="flex flex-col">
             <div class="relative rounded-[6px] overflow-hidden h-[clamp(260px,26vw,340px)] bg-paper-2">
-              <img class="w-full h-full object-contain" src={u.img} alt={u.alt} />
+              <img class="w-full h-full object-contain blur-lg scale-110 select-none pointer-events-none" src={u.img} alt={u.alt} />
               <span class:list={['absolute top-4 left-4 text-[11px] font-bold tracking-[0.1em] uppercase px-[13px] py-1.5 rounded-[2px]', tagStyles[u.tagClass]]}>{u.tag}</span>
             </div>
             <div class="pt-[26px] px-1 flex flex-col flex-1">
