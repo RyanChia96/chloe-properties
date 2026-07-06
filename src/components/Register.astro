@@ -93,13 +93,16 @@ const inputClass =
             >
           </div>
           <h3 class="font-serif text-[30px] font-semibold mb-3">
-            Registration received
+            Almost there
           </h3>
           <p
-            class="text-[15px] text-[#6b6456] leading-[1.64] max-w-[38ch] mx-auto"
+            class="text-[15px] text-[#6b6456] leading-[1.64] max-w-[40ch] mx-auto"
           >
-            Thank you for your interest in PJ New Launch Private Lift. Chloe
-            will be in touch with you shortly.
+            We've opened WhatsApp with your details — just tap
+            <span class="font-semibold text-ink">send</span> and Chloe will follow
+            up personally. If it didn't open, message
+            <a href="https://wa.me/60169054333" class="text-accent font-semibold underline underline-offset-2">+60 16-905 4333</a>
+            directly.
           </p>
         </div>
 
@@ -180,6 +183,8 @@ const inputClass =
   const ACTIVE = ["border-accent", "bg-accent", "text-white"];
   const INACTIVE = ["border-line-input", "bg-transparent", "text-[#4a473d]"];
 
+  const WHATSAPP_PHONE = "60169054333"; // Chloe Tan — WhatsApp hand-off
+
   const form = document.getElementById("enquiry") as HTMLFormElement | null;
   const thanks = document.getElementById("thanks");
 
@@ -214,6 +219,9 @@ const inputClass =
 
       const name = form.querySelector<HTMLInputElement>('[name="name"]');
       const email = form.querySelector<HTMLInputElement>('[name="email"]');
+      const phone = form.querySelector<HTMLInputElement>('[name="phone"]');
+      const interest = form.querySelector<HTMLSelectElement>('[name="interest"]');
+      const contact = form.querySelector<HTMLInputElement>('[name="contact"]');
       if (!name || !email) return;
 
       let valid = true;
@@ -227,6 +235,19 @@ const inputClass =
         valid = false;
       }
       if (!valid) return;
+
+      // Hand the enquiry off to WhatsApp with the details pre-filled.
+      const lines = [
+        "Hi Chloe, I'd like to register my interest in PJ New Launch Private Lift.",
+        "",
+        `Name: ${name.value.trim()}`,
+        `Email: ${email.value.trim()}`,
+        `Mobile: ${phone?.value.trim() || "—"}`,
+        `Layout of interest: ${interest?.value || "—"}`,
+        `Preferred contact: ${contact?.value || "—"}`,
+      ];
+      const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(lines.join("\n"))}`;
+      window.open(waUrl, "_blank", "noopener,noreferrer");
 
       form.hidden = true;
       thanks.hidden = false;

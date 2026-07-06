@@ -1,42 +1,43 @@
 ---
 const slides = [
-  'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1900&q=72',
-  'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1900&q=72',
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1900&q=72',
+  '/assets/hero-1.webp',
+  '/assets/hero-2.webp',
+  '/assets/hero-3.webp',
 ];
 ---
 
-<section class="pt-[clamp(70px,9vw,140px)] px-gutter">
-  <div class="max-w-wrap mx-auto">
-    <p class="text-[12.5px] tracking-[0.3em] uppercase text-accent font-bold mb-[clamp(28px,3vw,44px)]">Something exclusive is coming · Petaling Jaya</p>
-    <div class="flex flex-wrap gap-[clamp(32px,6vw,90px)] items-start justify-between mt-[clamp(36px,4vw,56px)]">
-      <h1 class="flex-[1_1_320px] font-serif font-semibold text-[clamp(34px,4.6vw,58px)] leading-[1.08] tracking-[-0.01em] max-w-[14ch] [text-wrap:balance]">When arrival becomes an <span class="text-accent">experience.</span></h1>
-      <div class="flex-[1_1_380px] flex flex-col items-start gap-[clamp(24px,3vw,34px)]">
-        <p class="text-[clamp(17px,1.8vw,21px)] leading-[1.62] max-w-[46ch] text-body font-light">
-          A limited, low-density collection of luxury residences in the heart of Petaling Jaya —
-          where every home opens to its own private lift lobby.
-        </p>
-        <div class="flex flex-wrap gap-3.5">
-          <a href="#register" class="inline-block px-9 py-[18px] rounded-[40px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] bg-accent text-white hover:bg-accent-hover">Register Your Interest</a>
-          <a href="#residences" class="inline-block px-9 py-[18px] rounded-[40px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] border border-[rgba(42,40,32,0.3)] text-ink hover:border-ink">Explore Residences</a>
-        </div>
-      </div>
+<section id="hero-media" class="relative min-h-[92vh] flex items-end overflow-hidden px-gutter py-[clamp(56px,8vw,104px)] bg-[#20180f] text-[#f5eee1]">
+  {
+    slides.map((src, i) => (
+      <div
+        data-slide
+        class:list={[
+          'absolute inset-0 bg-center bg-cover bg-no-repeat transition-opacity duration-[1600ms] ease-linear',
+          i === 0 ? 'opacity-100' : 'opacity-0',
+        ]}
+        style={`background-image:url('${src}')`}
+      />
+    ))
+  }
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background:linear-gradient(180deg, rgba(24,17,10,0.42) 0%, rgba(24,17,10,0.22) 38%, rgba(20,14,8,0.86) 100%);"
+  />
+  <span class="absolute top-[clamp(26px,4vw,46px)] right-[clamp(20px,5vw,64px)] text-[11px] tracking-[0.22em] uppercase text-white/65 font-medium border border-white/[0.28] px-[13px] py-1.5 rounded-[2px] backdrop-blur-[3px]">
+    Artist's Impression
+  </span>
+
+  <div class="relative max-w-wrap mx-auto w-full">
+    <p class="text-[12.5px] tracking-[0.3em] uppercase text-accent font-semibold mb-[clamp(22px,3vw,34px)]">Something exclusive is coming · Petaling Jaya</p>
+    <h1 class="font-serif font-semibold text-[clamp(34px,4.6vw,58px)] leading-[1.08] tracking-[-0.01em] max-w-[14ch] [text-wrap:balance]">When arrival becomes an <span class="text-accent">experience.</span></h1>
+    <p class="mt-6 text-[clamp(16px,1.6vw,19px)] leading-[1.62] max-w-[52ch] text-white/[0.82] font-light">
+      A limited, low-density collection of luxury residences in the heart of Petaling Jaya —
+      where every home opens to its own private lift lobby.
+    </p>
+    <div class="mt-[clamp(32px,4vw,44px)] flex flex-wrap gap-3.5">
+      <a href="#register" class="inline-block px-9 py-[18px] rounded-[40px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] bg-accent text-white hover:bg-accent-hover">Register Your Interest</a>
+      <a href="#residences" class="inline-block px-9 py-[18px] rounded-[40px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] bg-white/10 border border-white/40 text-[#f5eee1] backdrop-blur-[4px] hover:bg-white/[0.18]">Explore Residences</a>
     </div>
-  </div>
-  <div class="max-w-wrap mx-auto mt-[clamp(48px,6vw,88px)] relative rounded-[6px] overflow-hidden h-[clamp(380px,58vh,680px)] bg-[#1a201a]" id="hero-media">
-    {
-      slides.map((src, i) => (
-        <div
-          data-slide
-          class:list={[
-            'absolute inset-0 bg-center bg-cover bg-no-repeat transition-opacity duration-[1600ms] ease-linear',
-            i === 0 ? 'opacity-100' : 'opacity-0',
-          ]}
-          style={`background-image:url('${src}')`}
-        />
-      ))
-    }
-    <span class="absolute bottom-[18px] right-5 text-[11px] tracking-[0.22em] uppercase text-white/85 font-medium border border-white/40 px-[13px] py-1.5 rounded-[2px] backdrop-blur-[3px]">Artist's Impression</span>
   </div>
 </section>
 
