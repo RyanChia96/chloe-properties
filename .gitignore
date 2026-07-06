@@ -21,3 +21,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Local image source masters (not served; optimized copies live in public/assets)
+public/new-images/
