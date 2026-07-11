@@ -3,7 +3,8 @@
     "allow": [
       "PowerShell(git -C \"c:\\\\Users\\\\ryan_\\\\Documents\\\\Github\\\\chloe-properties\" status --short)",
       "PowerShell(git -C \"c:\\\\Users\\\\ryan_\\\\Documents\\\\Github\\\\chloe-properties\" diff src/components/Header.astro)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4322/privacy)"
     ]
   }
 }

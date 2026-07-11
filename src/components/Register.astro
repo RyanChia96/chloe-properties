@@ -21,169 +21,188 @@ const inputClass =
 
 <section id="register" class="py-[clamp(90px,12vw,170px)] px-gutter">
   <div class="max-w-wrap mx-auto">
-    <div class="text-center mb-[clamp(52px,7vw,90px)]">
-      <p
-        class="text-[13px] tracking-[0.3em] uppercase text-accent font-bold mb-[clamp(24px,3vw,36px)]"
-      >
-        Be the first to know
-      </p>
-      <h2
-        class="font-serif font-semibold text-[clamp(32px,4.4vw,60px)] leading-[1.08] tracking-[-0.01em]"
-      >
-        The first to <span class="text-accent">choose.</span>
-      </h2>
-      <p
-        class="text-[clamp(15.5px,1.6vw,18px)] leading-[1.7] text-body font-light max-w-[52ch] mt-[clamp(24px,3vw,36px)] mx-auto"
-      >
-        A limited preview, extended only by invitation. Reserve your spot now
-        and your dedicated agent will be in touch with priority access, pricing
-        and floor plans.
-      </p>
-    </div>
+    <div
+      class="flex flex-col md:flex-row md:items-center gap-[clamp(40px,5vw,72px)] mb-[clamp(52px,7vw,90px)]"
+    >
+      <div class="flex-1">
+        <p
+          class="text-[13px] tracking-[0.3em] uppercase text-accent font-bold mb-[clamp(24px,3vw,36px)]"
+        >
+          Be the first to know
+        </p>
+        <h2
+          class="font-serif font-semibold text-[clamp(32px,4.4vw,60px)] leading-[1.08] tracking-[-0.01em]"
+        >
+          The first to <span class="text-accent">choose.</span>
+        </h2>
+        <p
+          class="text-[clamp(15.5px,1.6vw,18px)] leading-[1.7] text-body font-light max-w-[52ch] mt-[clamp(24px,3vw,36px)]"
+        >
+          A limited preview, extended only by invitation. Reserve your spot now
+          and your dedicated agent will be in touch with priority access,
+          pricing and floor plans.
+        </p>
+      </div>
 
-    <div class="max-w-[1080px] mx-auto mb-[clamp(40px,5vw,72px)] rounded-[8px] overflow-hidden">
-      <img
-        class="w-full h-auto"
-        src="/assets/private-balcony-kl-skyline.webp"
-        alt="Private balcony overlooking the Kuala Lumpur skyline at dusk"
-        loading="lazy"
-      />
+      <div class="flex-1 rounded-[8px] overflow-hidden">
+        <img
+          class="w-full h-auto"
+          src="/assets/private-balcony-kl-skyline.webp"
+          alt="Private balcony overlooking the Kuala Lumpur skyline at dusk"
+          loading="lazy"
+        />
+      </div>
     </div>
 
     <div
-      class="max-w-[1080px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[clamp(40px,5vw,72px)] items-start"
+      class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[clamp(40px,5vw,72px)] items-center"
     >
-      <div class="flex items-center gap-[18px] p-6 bg-paper rounded-[6px]">
-        <span
-          class="w-[58px] h-[58px] rounded-full bg-forest text-accent flex items-center justify-center flex-none font-serif text-[25px] font-semibold"
-          >TJW</span
+      <div>
+        <h3
+          class="font-serif text-[clamp(24px,2.6vw,32px)] font-semibold mb-[clamp(20px,2.5vw,28px)]"
         >
-        <div>
-          <div class="font-serif text-[22px] font-semibold leading-[1.1]">
-            Tan Jia Wei
-          </div>
-          <div class="text-[13px] text-muted mt-[3px]">
-            REN 65782 · Negotiator
-          </div>
-          <div class="flex flex-wrap gap-x-4 gap-y-1.5 mt-[9px] text-[13.5px]">
-            <a
-              href="tel:+60169054333"
-              class="text-[#4a473d] font-medium transition-colors duration-200 hover:text-accent"
-              >+60 16-905 4333</a
+          <span class="text-accent">Interested?</span> Contact Me
+        </h3>
+        <div class="flex items-center gap-[18px] p-6 bg-paper rounded-[6px]">
+          <span
+            class="w-[58px] h-[58px] rounded-full bg-forest text-accent flex items-center justify-center flex-none font-serif text-[25px] font-semibold"
+            >CT</span
+          >
+          <div>
+            <div class="font-serif text-[22px] font-semibold leading-[1.1]">
+              Chloe Tan
+            </div>
+            <div class="text-[13px] text-muted mt-[3px]">
+              REN 65782 · Negotiator
+            </div>
+            <div
+              class="flex flex-wrap gap-x-4 gap-y-1.5 mt-[9px] text-[13.5px]"
             >
-            <a
-              href="mailto:jiaweii927@gmail.com"
-              class="text-[#4a473d] font-medium transition-colors duration-200 hover:text-accent"
-              >jiaweii927@gmail.com</a
-            >
+              <a
+                href="tel:+60169054333"
+                class="text-[#4a473d] font-medium transition-colors duration-200 hover:text-accent"
+                >+60 16-905 4333</a
+              >
+              <a
+                href="mailto:jiaweii927@gmail.com"
+                class="text-[#4a473d] font-medium transition-colors duration-200 hover:text-accent"
+                >jiaweii927@gmail.com</a
+              >
+            </div>
           </div>
         </div>
+        <p class="mt-4 px-1 text-[12px] leading-[1.6] text-muted">
+          Marketed by <span class="font-semibold text-ink"
+            >Nexsgen Realty Sdn Bhd
+          </span>
+          <br />Registered Estate Agency, BOVAEP Reg. No.
+          <span class="font-semibold text-ink">E (1) 1914</span>
+        </p>
       </div>
 
-      <div>
+      <div
+        id="thanks"
+        class="text-center py-[34px] px-2.5 bg-paper rounded-[6px]"
+        hidden
+      >
         <div
-          id="thanks"
-          class="text-center py-[34px] px-2.5 bg-paper rounded-[6px]"
-          hidden
+          class="w-[60px] h-[60px] rounded-full bg-accent/[0.16] flex items-center justify-center mx-auto mb-[22px]"
         >
-          <div
-            class="w-[60px] h-[60px] rounded-full bg-accent/[0.16] flex items-center justify-center mx-auto mb-[22px]"
+          <svg
+            class="text-accent"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg
           >
-            <svg
-              class="text-accent"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg
-            >
-          </div>
-          <h3 class="font-serif text-[30px] font-semibold mb-3">
-            Almost there
-          </h3>
-          <p
-            class="text-[15px] text-[#6b6456] leading-[1.64] max-w-[40ch] mx-auto"
-          >
-            We've opened WhatsApp with your details — just tap
-            <span class="font-semibold text-ink">send</span> and Jia Wei will follow
-            up personally. If it didn't open, message
-            <a href="https://wa.me/60169054333" class="text-accent font-semibold underline underline-offset-2">+60 16-905 4333</a>
-            directly.
-          </p>
         </div>
+        <h3 class="font-serif text-[30px] font-semibold mb-3">Almost there</h3>
+        <p
+          class="text-[15px] text-[#6b6456] leading-[1.64] max-w-[40ch] mx-auto"
+        >
+          We've opened WhatsApp with your details — just tap
+          <span class="font-semibold text-ink">send</span> and Chloe will follow up
+          personally. If it didn't open, message
+          <a
+            href="https://wa.me/60169054333"
+            class="text-accent font-semibold underline underline-offset-2"
+            >+60 16-905 4333</a
+          >
+          directly.
+        </p>
+      </div>
 
-        <form id="enquiry" class="flex flex-col gap-[18px]" novalidate>
-          <div class={fieldClass}>
-            <label for="f-name" class={labelClass}>Full name</label>
+      <form id="enquiry" class="flex flex-col gap-[18px]" novalidate>
+        <div class={fieldClass}>
+          <label for="f-name" class={labelClass}>Full name</label>
+          <input
+            id="f-name"
+            name="name"
+            class={inputClass}
+            placeholder="Your name"
+            required
+          />
+        </div>
+        <div class="flex gap-5 flex-wrap">
+          <div class={`${fieldClass} flex-1 min-w-[150px]`}>
+            <label for="f-email" class={labelClass}>Email</label>
             <input
-              id="f-name"
-              name="name"
+              id="f-email"
+              name="email"
+              type="email"
               class={inputClass}
-              placeholder="Your name"
+              placeholder="you@email.com"
               required
             />
           </div>
-          <div class="flex gap-5 flex-wrap">
-            <div class={`${fieldClass} flex-1 min-w-[150px]`}>
-              <label for="f-email" class={labelClass}>Email</label>
-              <input
-                id="f-email"
-                name="email"
-                type="email"
-                class={inputClass}
-                placeholder="you@email.com"
-                required
-              />
-            </div>
-            <div class={`${fieldClass} flex-1 min-w-[150px]`}>
-              <label for="f-phone" class={labelClass}>Mobile</label>
-              <input
-                id="f-phone"
-                name="phone"
-                class={inputClass}
-                placeholder="+60"
-              />
-            </div>
+          <div class={`${fieldClass} flex-1 min-w-[150px]`}>
+            <label for="f-phone" class={labelClass}>Mobile</label>
+            <input
+              id="f-phone"
+              name="phone"
+              class={inputClass}
+              placeholder="+60"
+            />
           </div>
-          <div class={fieldClass}>
-            <label for="f-interest" class={labelClass}>Layout of interest</label
-            >
-            <select id="f-interest" name="interest" class={inputClass}>
-              {layouts.map((l) => <option>{l}</option>)}
-            </select>
+        </div>
+        <div class={fieldClass}>
+          <label for="f-interest" class={labelClass}>Layout of interest</label>
+          <select id="f-interest" name="interest" class={inputClass}>
+            {layouts.map((l) => <option>{l}</option>)}
+          </select>
+        </div>
+        <div class={fieldClass}>
+          <span class={labelClass}>Preferred contact method</span>
+          <div class="flex gap-2.5 flex-wrap">
+            {
+              contactMethods.map((m, i) => (
+                <button
+                  type="button"
+                  class:list={[chipBase, i === 0 ? chipActive : chipInactive]}
+                  data-contact={m}
+                >
+                  {m}
+                </button>
+              ))
+            }
           </div>
-          <div class={fieldClass}>
-            <span class={labelClass}>Preferred contact method</span>
-            <div class="flex gap-2.5 flex-wrap">
-              {
-                contactMethods.map((m, i) => (
-                  <button
-                    type="button"
-                    class:list={[chipBase, i === 0 ? chipActive : chipInactive]}
-                    data-contact={m}
-                  >
-                    {m}
-                  </button>
-                ))
-              }
-            </div>
-            <input type="hidden" name="contact" value="WhatsApp" />
-          </div>
-          <button
-            type="submit"
-            class="mt-2.5 bg-accent text-white border-0 rounded-[40px] p-[17px] text-[13px] font-semibold cursor-pointer tracking-[0.14em] uppercase transition-colors duration-[250ms] hover:bg-accent-hover"
-            >Register Interest</button
-          >
-          <p class="text-[11.5px] text-muted leading-[1.55]">
-            By submitting, you consent to be contacted regarding PJ New Launch
-            Private Lift in accordance with the developer's Personal Data
-            Protection Policy.
-          </p>
-        </form>
-      </div>
+          <input type="hidden" name="contact" value="WhatsApp" />
+        </div>
+        <button
+          type="submit"
+          class="mt-2.5 bg-accent text-white border-0 rounded-[40px] p-[17px] text-[13px] font-semibold cursor-pointer tracking-[0.14em] uppercase transition-colors duration-[250ms] hover:bg-accent-hover"
+          >Register Interest</button
+        >
+        <p class="text-[11.5px] text-muted leading-[1.55]">
+          By submitting, you consent to be contacted regarding PJ New Launch
+          Private Lift in accordance with the developer's Personal Data
+          Protection Policy.
+        </p>
+      </form>
     </div>
   </div>
 </section>
@@ -192,7 +211,7 @@ const inputClass =
   const ACTIVE = ["border-accent", "bg-accent", "text-white"];
   const INACTIVE = ["border-line-input", "bg-transparent", "text-[#4a473d]"];
 
-  const WHATSAPP_PHONE = "60169054333"; // Tan Jia Wei — WhatsApp hand-off
+  const WHATSAPP_PHONE = "60169054333"; // Chloe Tan — WhatsApp hand-off
 
   const form = document.getElementById("enquiry") as HTMLFormElement | null;
   const thanks = document.getElementById("thanks");
@@ -229,7 +248,8 @@ const inputClass =
       const name = form.querySelector<HTMLInputElement>('[name="name"]');
       const email = form.querySelector<HTMLInputElement>('[name="email"]');
       const phone = form.querySelector<HTMLInputElement>('[name="phone"]');
-      const interest = form.querySelector<HTMLSelectElement>('[name="interest"]');
+      const interest =
+        form.querySelector<HTMLSelectElement>('[name="interest"]');
       const contact = form.querySelector<HTMLInputElement>('[name="contact"]');
       if (!name || !email) return;
 
@@ -247,7 +267,7 @@ const inputClass =
 
       // Hand the enquiry off to WhatsApp with the details pre-filled.
       const lines = [
-        "Hi Jia Wei, I'd like to register my interest in PJ New Launch Private Lift.",
+        "Hi Chloe, I'd like to register my interest in PJ New Launch Private Lift.",
         "",
         `Name: ${name.value.trim()}`,
         `Email: ${email.value.trim()}`,
