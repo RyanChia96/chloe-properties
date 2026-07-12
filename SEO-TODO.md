@@ -13,6 +13,15 @@ Tracking list for pjprelaunchprivatelift.com.my. Grouped by effort/impact.
 - [ ] **Contact identity** — agent uses a personal Gmail (jiaweii927@gmail.com) while marketing is by Nexsgen Realty. Consider a branded agency email for credibility + schema consistency.
 - [ ] **Floorplan sizes** — cards show "1,8xx / 1,5xx / 1,1xx" while schema shows exact figures. Confirm the teaser blur is intentional.
 
+## Semrush audit round 2 (post-deploy)
+- [x] SSL / cert error resolved (apex DNS now on Vercel)
+- [x] Shortened homepage <title> to ~52 chars (was ~92, got truncated in SERPs)
+- [x] Added rel="nofollow" to wa.me WhatsApp links (Semrush flagged as "broken" — wa.me blocks bots; not actually broken)
+- [ ] Exclude/dismiss `/cgi-sys/suspendedpage.cgi` 4XX in Semrush (ghost from old host; not in site)
+- [x] "1 page blocked from crawling" = privacy page noindex — INTENTIONAL, leave as-is
+- [ ] (Optional) Create /llms.txt to clear the "LLms.txt not found" notice
+- [ ] Redeploy (git push) for title + nofollow fixes to go live
+
 ## Higher-impact SEO
 - [ ] **FAQ section** — capture high-intent keywords: price, launch date, maintenance fee, developer name, completion date. Add FAQ schema (JSON-LD) for rich results.
 - [ ] **Developer content** — "Established Malaysian Developer" appears everywhere and ranks for nothing. Name the developer + add a short track-record block once confirmed.
