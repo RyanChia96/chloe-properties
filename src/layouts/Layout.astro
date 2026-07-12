@@ -8,7 +8,7 @@ const apartmentComplex = {
   description:
     "An exclusive, low-density collection of luxury residences in the heart of Petaling Jaya. Layouts range from 1,165 to 1,880 sqft, each with its own private lift lobby, and up to three carparks.",
   url: "https://www.pjprelaunchprivatelift.com.my/",
-  image: "https://www.pjprelaunchprivatelift.com.my/images/og-image.jpg",
+  image: "https://www.pjprelaunchprivatelift.com.my/assets/og-image.jpg",
   numberOfBedrooms: "3-4",
   petsAllowed: true,
   address: {
@@ -31,7 +31,7 @@ const apartmentComplex = {
     },
     {
       "@type": "Apartment",
-      name: "Type B1 ",
+      name: "Type B1",
       floorSize: { "@type": "QuantitativeValue", value: 1574, unitCode: "FTK" },
       numberOfBedrooms: 3,
       numberOfBathroomsTotal: 4,
@@ -49,12 +49,20 @@ const apartmentComplex = {
 const realEstateAgent = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "Chloe Tan",
-  jobTitle: "Negotiator",
-  identifier: "REN 65782",
+  name: "Chloe Tan — Nexsgen Realty",
+  image: "https://www.pjprelaunchprivatelift.com.my/assets/og-image.jpg",
+  url: "https://www.pjprelaunchprivatelift.com.my/",
   telephone: "+60-16-905-4333",
   email: "jiaweii927@gmail.com",
+  identifier: "REN 65782",
+  priceRange: "$$$",
   areaServed: "Petaling Jaya, Selangor, Malaysia",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Petaling Jaya",
+    addressRegion: "Selangor",
+    addressCountry: "MY",
+  },
   knowsAbout: "PJ New Launch Private Lift, luxury Petaling Jaya residences",
 };
 ---
@@ -96,8 +104,10 @@ const realEstateAgent = {
     />
     <meta
       property="og:image"
-      content="https://www.pjprelaunchprivatelift.com.my/images/og-image.jpg"
+      content="https://www.pjprelaunchprivatelift.com.my/assets/og-image.jpg"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta
       property="og:url"
       content="https://www.pjprelaunchprivatelift.com.my/"
@@ -115,7 +125,7 @@ const realEstateAgent = {
     />
     <meta
       name="twitter:image"
-      content="https://www.pjprelaunchprivatelift.com.my/images/og-image.jpg"
+      content="https://www.pjprelaunchprivatelift.com.my/assets/og-image.jpg"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
