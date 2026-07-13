@@ -12,7 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.0"
+    "astro": "^5.13.0",
+    "@astrojs/vercel": "^9.0.5"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.8",
