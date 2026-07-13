@@ -2,41 +2,21 @@
 
 Tracking list for pjprelaunchprivatelift.com.my. Grouped by effort/impact.
 
-## Done
-- [x] Fix footer disclaimer typos (Specifications, without, with) + missing period
-- [x] Fix broken header nav anchors (#living-hall, #sky-semi-d)
-- [x] Remove trailing space in "Type B1"
-- [x] OG image — created 1200×630 `og-image.jpg` from sky-frontage.webp; updated og/twitter/schema paths to `/assets/og-image.jpg` + added width/height meta
-
 ## Quick fixes
-- [ ] **Residences heading** — "Three layouts, each a balcony design" is confusing (only Type C1 has a balcony). Reword.
-- [ ] **Contact identity** — agent uses a personal Gmail (jiaweii927@gmail.com) while marketing is by Nexsgen Realty. Consider a branded agency email for credibility + schema consistency.
-- [ ] **Floorplan sizes** — cards show "1,8xx / 1,5xx / 1,1xx" while schema shows exact figures. Confirm the teaser blur is intentional.
 
-## Semrush audit round 2 (post-deploy)
-- [x] SSL / cert error resolved (apex DNS now on Vercel)
-- [x] Shortened homepage <title> to ~52 chars (was ~92, got truncated in SERPs)
-- [x] Added rel="nofollow" to wa.me WhatsApp links (Semrush flagged as "broken" — wa.me blocks bots; not actually broken)
-- [ ] Exclude/dismiss `/cgi-sys/suspendedpage.cgi` 4XX in Semrush (ghost from old host; not in site)
-- [x] "1 page blocked from crawling" = privacy page noindex — INTENTIONAL, leave as-is
-- [ ] (Optional) Create /llms.txt to clear the "LLms.txt not found" notice
-- [ ] Redeploy (git push) for title + nofollow fixes to go live
+- [x] **Residences heading** — reworded to "Three layouts, each with its own private lift" (accurate for all three; only Type C1 has a balcony).
+- [ ] **Contact identity** — agent uses a personal Gmail (jiaweii927@gmail.com) while marketing is by Nexsgen Realty. Consider a branded agency email for credibility + schema consistency.
+- [x] **Floorplan sizes** — teaser blur / masked sizes ("1,8xx") confirmed intentional (lead-gen "register to see more"). Schema keeps exact figures; mismatch is harmless (floor size isn't a rich-result trigger).
 
 ## Higher-impact SEO
+
 - [ ] **FAQ section** — capture high-intent keywords: price, launch date, maintenance fee, developer name, completion date. Add FAQ schema (JSON-LD) for rich results.
 - [ ] **Developer content** — "Established Malaysian Developer" appears everywhere and ranks for nothing. Name the developer + add a short track-record block once confirmed.
 - [ ] **H1 keyword alignment** — H1 "When arrival becomes an experience" has none of the target keywords. Add a keyword-bearing subhead (PJ / private lift / new launch) near the top.
 - [ ] **Thin content** — only one real page. Consider adding location/neighbourhood detail, developer page, or a short blog for long-tail keywords.
 
 ## Technical SEO
-- [x] `robots.txt` created (public/robots.txt) — allows all, declares sitemap
-- [x] `sitemap.xml` now auto-generated via src/pages/sitemap.xml.ts (auto-discovers pages)
-- [x] Removed old static public/sitemap.xml (avoided build collision)
-- [x] Fixed stale `site` in astro.config.mjs (accentpj → www.pjprelaunchprivatelift)
-- [x] Fixed invalid structured data — RealEstateAgent: removed invalid `jobTitle`, added address/image/url/priceRange
-- [ ] Rebuild + redeploy so robots.txt / sitemap.xml / schema fix go live (dist/ is stale)
-- [ ] Submit sitemap to Google Search Console
-- [ ] **SSL / apex DNS fix** (root cause found): www is on Vercel ✅ but apex still points to old Linode host 139.162.7.203 (serves aafiyah.com.my cert). FIX: in BigDomain DNS panel change apex A record → `76.76.21.21`; in Vercel add apex domain + set it to redirect to www. Auto-issues valid cert + handles non-www→www 301.
+
 - [ ] Re-validate structured data with Google Rich Results Test after deploy
 - [ ] Google Search Console + Analytics installed
 - [ ] Image `alt` text audit (mostly good already)
