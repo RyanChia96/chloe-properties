@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 const apartmentComplex = {
   "@context": "https://schema.org",
@@ -141,6 +142,9 @@ const realEstateAgent = {
       type="application/ld+json"
       set:html={JSON.stringify(realEstateAgent)}
     />
+
+    <!-- ============ Speed Insights ============ -->
+    <SpeedInsights />
   </head>
   <body id="top">
     <slot />
