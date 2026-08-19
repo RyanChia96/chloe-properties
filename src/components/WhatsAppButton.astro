@@ -1,8 +1,9 @@
 ---
-const phone = "60169054333"; // 0169054333 in international format
-const message =
-  "Hi, I'm interested in the PJ New Launch Private Lift residences. Could you share more details?";
-const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+import { project, waLink } from "../config/site";
+
+const href = waLink(
+  `Hi, I'm interested in ${project.name}. Could you share more details?`,
+);
 ---
 
 <a

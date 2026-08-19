@@ -1,0 +1,148 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import {
+  project,
+  developer,
+  agency,
+  agent,
+  independenceNotice,
+  materialsNotice,
+} from "../config/site";
+
+const lastUpdated = "18 August 2026";
+---
+
+<LegalLayout
+  title={`Terms of Use | ${project.name}`}
+  description={`Terms of use for the independent marketing website for ${project.name}, operated by ${agent.name} (${agent.ren}) of ${agency.name}.`}
+  heading="Terms of Use"
+  lastUpdated={lastUpdated}
+  path="/terms/"
+>
+  <div class="bg-paper rounded-[8px] p-6 text-[14.5px] leading-[1.7] text-ink">
+    <p class="font-semibold mb-2">Important notice</p>
+    <p>{independenceNotice}</p>
+  </div>
+
+  <section>
+    <h2>1. Website operator</h2>
+    <p>
+      This website is operated independently by {agent.name} ({agent.ren}), a
+      registered Real Estate Negotiator with {agency.name}{
+        agency.companyNo ? ` (${agency.companyNo})` : ""
+      }, a Registered Estate Agency holding BOVAEP licence {agency.licence}. The
+      developer of the featured development is {developer.name}. We are not
+      the developer and do not act as the developer's official channel.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. Information accuracy</h2>
+    <p>
+      Information on this website — including images, layouts, dimensions,
+      specifications, facilities, proximities, availability and any indicative
+      pricing — is compiled from materials supplied by the developer, public
+      records and authorised third parties. While reasonable efforts are made to
+      keep it accurate, all information is provided for general reference only,
+      may change without notice, and does not constitute financial, legal or
+      professional advice. Prospective purchasers should verify all details
+      directly with the developer before making any decision.
+    </p>
+  </section>
+
+  <section>
+    <h2>3. No offer or contract</h2>
+    <p>{materialsNotice}</p>
+  </section>
+
+  <section>
+    <h2>4. Enquiries and communication consent</h2>
+    <p>
+      This website does not host an enquiry form. If you contact us voluntarily
+      by WhatsApp, telephone or email, you consent to being contacted by {
+        agent.name
+      } ({agent.ren}) of {agency.name}, or an authorised representative, in
+      connection with your enquiry about {project.name}. You may withdraw that
+      consent and ask us to stop contacting you at any time by replying
+      &ldquo;STOP&rdquo; on WhatsApp or emailing <a
+        href={`mailto:${agent.email}`}>{agent.email}</a
+      >.
+    </p>
+  </section>
+
+  <section>
+    <h2>5. Personal data</h2>
+    <p>
+      Any personal data you send us is handled in accordance with our <a
+        href="/privacy">Privacy Policy</a
+      > and Malaysia's Personal Data Protection Act 2010 (PDPA). We do not sell,
+      rent or trade your personal data.
+    </p>
+  </section>
+
+  <section>
+    <h2>6. Intellectual property</h2>
+    <p>
+      Project names, renders, plans and marketing materials referenced on this
+      website remain the property of their respective owners, including the
+      developer, and are used here for the purpose of marketing the development
+      as an appointed agency. Third-party names such as neighbouring buildings,
+      schools and transport nodes are referenced descriptively for location
+      context only and imply no affiliation or endorsement.
+    </p>
+  </section>
+
+  <section>
+    <h2>7. Third-party links</h2>
+    <p>
+      This website links to third-party services, including WhatsApp and mapping
+      providers. We do not control and are not responsible for the content,
+      availability or privacy practices of those services.
+    </p>
+  </section>
+
+  <section>
+    <h2>8. Limitation of liability</h2>
+    <p>
+      To the fullest extent permitted by law, neither {agent.name} nor {
+        agency.name
+      } shall be liable for any direct, indirect, incidental or consequential
+      loss arising from your use of, or reliance on, information contained on
+      this website.
+    </p>
+  </section>
+
+  <section>
+    <h2>9. Changes to these terms</h2>
+    <p>
+      We may amend these Terms of Use at any time. The revised version will be
+      published on this page with an updated revision date, and your continued
+      use of the website constitutes acceptance of it.
+    </p>
+  </section>
+
+  <section>
+    <h2>10. Governing law</h2>
+    <p>
+      These Terms of Use are governed by the laws of Malaysia, and any dispute
+      arising from use of this website is subject to the exclusive jurisdiction
+      of the Malaysian courts.
+    </p>
+  </section>
+
+  <section>
+    <h2>11. Contact</h2>
+    <div class="bg-paper rounded-[8px] p-6 text-[14.5px] leading-[1.7] text-ink">
+      <p class="font-semibold">{agent.name} · {agent.ren}</p>
+      <p class="text-muted">
+        {agency.name} — Registered Estate Agency, BOVAEP {agency.licence}
+      </p>
+      <p class="mt-2">{agency.address}</p>
+      <p class="mt-2">
+        <a href={`tel:${agent.phoneHref}`}>{agent.phoneDisplay}</a>
+        &nbsp;·&nbsp;
+        <a href={`mailto:${agent.email}`}>{agent.email}</a>
+      </p>
+    </div>
+  </section>
+</LegalLayout>

@@ -1,0 +1,135 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import {
+  project,
+  developer,
+  agency,
+  agent,
+  independenceNotice,
+} from "../config/site";
+
+const lastUpdated = "19 August 2026";
+// Public BOVAEP/LPEPH register — lets anyone verify the REN and agency licence
+// independently, rather than taking this site's word for it.
+const registerUrl = "https://lpeph.gov.my/search-listing";
+---
+
+<LegalLayout
+  title={`About This Site | ${project.name}`}
+  description={`Who operates this ${project.name} marketing website: ${agent.name} (${agent.ren}) of ${agency.name}, a registered estate agency. Not the developer's official website.`}
+  heading="About this site"
+  lastUpdated={lastUpdated}
+  path="/about/"
+  eyebrow="About"
+>
+  <div class="bg-paper rounded-[8px] p-6 text-[14.5px] leading-[1.7] text-ink">
+    <p class="font-semibold mb-2">In short</p>
+    <p>{independenceNotice}</p>
+  </div>
+
+  <section>
+    <h2>Who operates this website</h2>
+    <p class="mb-3">
+      This website is run by <strong class="text-ink">{agent.name}</strong> ({
+        agent.ren
+      }), a Real Estate Negotiator registered with Malaysia's Board of Valuers,
+      Appraisers, Estate Agents and Property Managers (BOVAEP), practising under{" "}
+      <strong class="text-ink">{agency.name}</strong>{
+        agency.companyNo ? ` (${agency.companyNo})` : ""
+      }, a Registered Estate Agency holding licence <strong class="text-ink"
+        >{agency.licence}</strong
+      >.
+    </p>
+    <p>
+      You can verify both the negotiator registration and the agency licence
+      yourself on the <a
+        href={registerUrl}
+        target="_blank"
+        rel="nofollow noopener noreferrer">BOVAEP public register</a
+      >. Our office is at {agency.address}.
+    </p>
+  </section>
+
+  <section>
+    <h2>What this website is — and is not</h2>
+    <p class="mb-3">
+      This is an independent marketing website for {project.name}, a development
+      in Section 13, Petaling Jaya. It exists so that people interested in the
+      project can register early and receive information as the developer
+      releases it.
+    </p>
+    <p>
+      It is <strong class="text-ink">not</strong> the official website of the developer,
+      {developer.name}, and it is not operated by or on behalf of the developer.
+      Where this site shows the project name, renders or plans, that material
+      originates with the developer and remains theirs.
+    </p>
+  </section>
+
+  <section>
+    <h2>Our relationship with the developer</h2>
+    <p>
+      We market this development as a registered estate agency. We do not
+      control the project. Pricing, specifications, layouts, facilities,
+      availability and launch timing are decided by the developer alone and may
+      change without notice. Nothing on this website is an endorsement by the
+      developer, and nothing here forms part of an offer or contract — any
+      purchase is governed solely by the Sale and Purchase Agreement you sign
+      with the developer.
+    </p>
+  </section>
+
+  <section>
+    <h2>How we are paid</h2>
+    <p>
+      Our service is <strong class="text-ink">free to you</strong>. We are paid a
+      commission by the developer, and only if a sale completes. We will never ask
+      you for a fee, a deposit, a booking payment or any other money through this
+      website. If anyone claiming to represent this site asks you for payment,
+      treat it as fraudulent and contact us directly using the details below.
+    </p>
+  </section>
+
+  <section>
+    <h2>What happens when you enquire</h2>
+    <p class="mb-3">
+      When you message us, we send you what the developer has released — floor
+      plans, indicative pricing where available, and launch details as they are
+      confirmed. Any figure we share before the official launch is indicative
+      only and is not binding until the developer confirms it in writing.
+    </p>
+    <p>
+      We contact you about this development only. You can ask us to stop at any
+      time and we will.
+    </p>
+  </section>
+
+  <section>
+    <h2>How we handle your information</h2>
+    <p>
+      This website has no enquiry form and collects no personal details from you
+      on the page itself. We only receive what you choose to send us by
+      WhatsApp, phone or email, and we use it solely to answer your enquiry, in
+      accordance with Malaysia's Personal Data Protection Act 2010. See our <a
+        href="/privacy">Privacy Policy</a
+      > for the detail, and our <a href="/terms">Terms of Use</a> for the terms on
+      which this site is provided.
+    </p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="bg-paper rounded-[8px] p-6 text-[14.5px] leading-[1.7] text-ink">
+      <p class="font-semibold">{agent.name} · {agent.ren}</p>
+      <p class="text-muted">
+        {agency.name} — Registered Estate Agency, BOVAEP {agency.licence}
+      </p>
+      <p class="mt-2">{agency.address}</p>
+      <p class="mt-2">
+        <a href={`tel:${agent.phoneHref}`}>{agent.phoneDisplay}</a>
+        &nbsp;·&nbsp;
+        <a href={`mailto:${agent.email}`}>{agent.email}</a>
+      </p>
+    </div>
+  </section>
+</LegalLayout>

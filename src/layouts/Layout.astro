@@ -1,26 +1,39 @@
 ---
 import "../styles/global.css";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import {
+  project,
+  developer,
+  agency,
+  agent,
+  site,
+  independenceNotice,
+} from "../config/site";
+
+const title = `${project.name} | Pre-Launch Private-Lift Residences, Section 13 Petaling Jaya`;
+const description = `${project.name} — a low-density pre-launch development by ${developer.name}, facing Plaza 33 in Section 13, Petaling Jaya. 3 to 4-bedroom layouts from 1,165 to 1,880 sqft, each with its own private lift lobby. Independent marketing site by ${agent.name} (${agent.ren}), ${agency.name}.`;
+const ogImage = `${site.url}/assets/og-image.jpg`;
 
 const apartmentComplex = {
   "@context": "https://schema.org",
   "@type": "ApartmentComplex",
-  name: "PJ New Launch Private Lift",
+  name: project.name,
   description:
-    "An exclusive, low-density collection of luxury residences in the heart of Petaling Jaya. Layouts range from 1,165 to 1,880 sqft, each with its own private lift lobby, and up to three carparks.",
-  url: "https://www.pjprelaunchprivatelift.com.my/",
-  image: "https://www.pjprelaunchprivatelift.com.my/assets/og-image.jpg",
+    "A low-density collection of private-lift residences in Section 13, Petaling Jaya. Layouts range from 1,165 to 1,880 sqft, each with its own private lift lobby, and up to three carparks.",
+  url: `${site.url}/`,
+  image: ogImage,
   numberOfBedrooms: "3-4",
   petsAllowed: true,
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Jalan Kemajuan / Jalan 13/1, Section 13",
     addressLocality: "Petaling Jaya",
     addressRegion: "Selangor",
     addressCountry: "MY",
   },
   developer: {
     "@type": "Organization",
-    name: "Established Malaysian Developer",
+    name: developer.name,
   },
   containsPlace: [
     {
@@ -50,21 +63,28 @@ const apartmentComplex = {
 const realEstateAgent = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "Chloe Tan — Nexsgen Realty",
-  image: "https://www.pjprelaunchprivatelift.com.my/assets/og-image.jpg",
-  url: "https://www.pjprelaunchprivatelift.com.my/",
-  telephone: "+60-16-905-4333",
-  email: "jiaweii927@gmail.com",
-  identifier: "REN 65782",
-  priceRange: "$$$",
+  name: `${agent.name} — ${agency.name}`,
+  description: independenceNotice,
+  image: ogImage,
+  url: `${site.url}/`,
+  telephone: agent.phoneDisplay,
+  email: agent.email,
+  identifier: agent.ren,
+  parentOrganization: {
+    "@type": "Organization",
+    name: agency.name,
+    identifier: `BOVAEP ${agency.licence}`,
+  },
   areaServed: "Petaling Jaya, Selangor, Malaysia",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "1-1, PJ 21 Commercial Centre, Jalan SS3/39",
+    postalCode: "47300",
     addressLocality: "Petaling Jaya",
     addressRegion: "Selangor",
     addressCountry: "MY",
   },
-  knowsAbout: "PJ New Launch Private Lift, luxury Petaling Jaya residences",
+  knowsAbout: `${project.name}, private-lift residences in Petaling Jaya`,
 };
 ---
 
@@ -76,60 +96,36 @@ const realEstateAgent = {
     <link rel="icon" type="image/svg+xml" href="/assets/pjpropertylogo.svg" />
 
     <!-- ============ SEO ============ -->
-    <title>PJ New Launch Private-Lift Condo | Petaling Jaya</title>
-    <meta
-      name="description"
-      content="PJ New Launch Private Lift — an exclusive, low-density new condo in the heart of Petaling Jaya (PJ), facing Plaza 33. 3 to 4-bedroom layouts from 1,165 to 1,880 sqft, and a private lift lobby for every home. Register your interest with Chloe Tan."
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="PJ new launch, private lift condo PJ, new launch Petaling Jaya, luxury condo PJ, private lift residences, Plaza 33 residence, low density condo Petaling Jaya, new launch private lift"
+      content="Accent PJ, Accent Petaling Jaya, Avaland Accent, PJ new launch, private lift condo PJ, new launch Petaling Jaya, Section 13 PJ condo, low density condo Petaling Jaya"
     />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="Chloe Tan, Negotiator" />
-    <link rel="canonical" href="https://www.pjprelaunchprivatelift.com.my/" />
+    <meta name="author" content={`${agent.name}, ${agent.ren}`} />
+    <link rel="canonical" href={`${site.url}/`} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="PJ New Launch Private Lift" />
-    <meta
-      property="og:title"
-      content="PJ New Launch Private Lift | Luxury Private-Lift Residences in Petaling Jaya"
-    />
-    <meta
-      property="og:description"
-      content="An exclusive, low-density collection of luxury residences in the heart of Petaling Jaya, facing Plaza 33 — with a private lift lobby for every home. 3–4 bedroom layouts from 1,165 to 1,880 sqft. Register your interest today."
-    />
-    <meta
-      property="og:image"
-      content="https://www.pjprelaunchprivatelift.com.my/assets/og-image.jpg"
-    />
+    <meta property="og:site_name" content={project.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:url"
-      content="https://www.pjprelaunchprivatelift.com.my/"
-    />
+    <meta property="og:url" content={`${site.url}/`} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="PJ New Launch Private Lift | Luxury Private-Lift Residences in Petaling Jaya"
-    />
-    <meta
-      name="twitter:description"
-      content="An exclusive, low-density collection of luxury residences in the heart of Petaling Jaya, facing Plaza 33 — a private lift lobby for every home. 3–4 bedroom layouts from 1,165 to 1,880 sqft."
-    />
-    <meta
-      name="twitter:image"
-      content="https://www.pjprelaunchprivatelift.com.my/assets/og-image.jpg"
-    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 

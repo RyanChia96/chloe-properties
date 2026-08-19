@@ -1,0 +1,106 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import { project, identityLine, site } from "../config/site";
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  lastUpdated: string;
+  path: string;
+  eyebrow?: string;
+}
+
+const {
+  title,
+  description,
+  heading,
+  lastUpdated,
+  path,
+  eyebrow = "Legal",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/assets/pjpropertylogo.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={`${site.url}${path}`} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <SpeedInsights />
+  </head>
+  <body id="top">
+    <div
+      class="bg-forest text-[rgba(242,237,226,0.86)] text-center text-[11.5px] leading-[1.5] px-gutter py-2.5 tracking-[0.02em]"
+    >
+      {identityLine}
+    </div>
+    <header class="bg-white/[0.94] backdrop-blur-[12px]">
+      <nav
+        class="max-w-wrap mx-auto px-gutter py-[22px] flex items-center justify-between gap-6"
+      >
+        <a href="/" class="flex items-center gap-[13px] flex-none">
+          <img
+            src="/assets/pjpropertylogo.svg"
+            alt={project.name}
+            class="w-[42px] h-[42px] rounded-[8px] flex-none"
+          />
+          <span class="flex flex-col leading-none">
+            <span class="font-serif text-[22px] font-semibold tracking-[0.14em]"
+              >{project.wordmarkTop}</span
+            >
+            <span
+              class="text-[9.5px] tracking-[0.42em] text-muted font-semibold mt-1"
+              >{project.wordmarkBottom}</span
+            >
+          </span>
+        </a>
+        <a
+          href="/"
+          class="text-[13px] font-semibold tracking-[0.12em] uppercase text-[#3a382f] opacity-[0.72] transition-opacity duration-200 hover:opacity-100"
+          >&larr; Back to home</a
+        >
+      </nav>
+    </header>
+
+    <main class="max-w-wrap mx-auto px-gutter py-[clamp(56px,8vw,110px)]">
+      <div class="max-w-[760px] mx-auto">
+        <p
+          class="text-[13px] tracking-[0.3em] uppercase text-accent font-bold mb-5"
+        >
+          {eyebrow}
+        </p>
+        <h1
+          class="font-serif font-semibold text-[clamp(34px,5vw,56px)] leading-[1.08] tracking-[-0.01em] mb-4"
+        >
+          {heading}
+        </h1>
+        <p class="text-[14px] text-muted mb-[clamp(36px,5vw,56px)]">
+          Last updated: {lastUpdated}
+        </p>
+
+        <div
+          class="flex flex-col gap-[clamp(28px,4vw,40px)] text-[15.5px] leading-[1.75] text-body [&_h2]:font-serif [&_h2]:text-[24px] [&_h2]:font-semibold [&_h2]:text-ink [&_h2]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-accent"
+        >
+          <slot />
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

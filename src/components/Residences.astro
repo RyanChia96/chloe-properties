@@ -1,4 +1,6 @@
 ---
+import { project, waLink } from "../config/site";
+
 const tagStyles = {
   "tag-gold": "bg-accent text-white",
   "tag-dark": "bg-forest text-forest-text",
@@ -11,7 +13,7 @@ const units = [
     tag: "Largest layout",
     tagClass: "tag-gold",
     name: "Type A",
-    size: "1,8xx",
+    size: "1,880",
     specs: "4 Bedrooms · 4 Bathrooms · 3 Carparks",
     foot: "Private lift lobby, 2m wide · Car park storage*",
   },
@@ -21,7 +23,7 @@ const units = [
     tag: "Extra bath option",
     tagClass: "tag-dark",
     name: "Type B1",
-    size: "1,5xx",
+    size: "1,574",
     specs: "3 Bedrooms · 4 Bathrooms · 2–3 Carparks",
     foot: "Private lift lobby, 2m wide · Car park storage*",
   },
@@ -31,31 +33,31 @@ const units = [
     tag: "Entry layout",
     tagClass: "tag-dark",
     name: "Type C1",
-    size: "1,1xx",
+    size: "1,165",
     specs: "3 Bedrooms · 2 Bathrooms · 2 Carparks",
     foot: "Private lift lobby, 1.8m wide · Balcony",
   },
 ];
 ---
 
-<section id="residences" class="py-[clamp(80px,10vw,150px)] px-gutter">
+<section id="residences" class="py-20 px-gutter">
   <div class="max-w-wrap mx-auto">
     <p
       class="text-[13px] tracking-[0.3em] uppercase text-muted font-semibold mb-[clamp(24px,3vw,40px)]"
     >
-      residences
+      layouts
     </p>
     <div
       class="flex flex-wrap items-end justify-between gap-6 mb-[clamp(44px,6vw,72px)]"
     >
       <h2
-        class="font-serif font-semibold text-[clamp(26px,3.2vw,42px)] leading-[1.15] tracking-[-0.008em] max-w-[16ch]"
+        class="font-inter font-semibold text-[clamp(26px,3.2vw,42px)] leading-[1.15] tracking-[-0.008em] max-w-[16ch]"
       >
-        Three layouts, each with its own private lift
+        Three layouts, each with its own private lift.
       </h2>
       <p class="text-[15.5px] text-body max-w-[36ch] leading-[1.7] font-light">
-        A limited selection of homes, thoughtfully sized for families who value
-        space, light and privacy — each served by its own private lift lobby.
+        Built-ups from 1,165 to 1,880 sqft, each served by its own private lift
+        lobby. Detailed floor plans are released by the developer on enquiry.
       </p>
     </div>
 
@@ -65,12 +67,42 @@ const units = [
       {
         units.map((u) => (
           <article class="flex flex-col">
-            <div class="relative rounded-[6px] overflow-hidden h-[clamp(260px,26vw,340px)] bg-paper-2">
+            <a
+              href={waLink(
+                `Hi Chloe, please send me the ${u.name} (${u.size} sqft) floor plan for ${project.name}.`,
+              )}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              class="group relative rounded-[6px] overflow-hidden h-[clamp(260px,26vw,340px)] bg-paper-2 block"
+              aria-label={`Request the ${u.name} floor plan on WhatsApp`}
+            >
               <img
                 class="w-full h-full object-contain blur-sm scale-110 select-none pointer-events-none"
                 src={u.img}
                 alt={u.alt}
+                loading="lazy"
               />
+              {/* The plan is deliberately withheld — say so plainly rather than
+                  letting a blurred image read as a bait. */}
+              <span class="absolute inset-0 flex flex-col items-center justify-center gap-2.5 bg-ink/[0.34] text-white transition-colors duration-200 group-hover:bg-ink/[0.44]">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="11" width="16" height="9" rx="1.5" />
+                  <path d="M8 11V8a4 4 0 018 0v3" />
+                </svg>
+                <span class="text-[11.5px] font-semibold tracking-[0.16em] uppercase">
+                  Floor plan on request
+                </span>
+              </span>
               <span
                 class:list={[
                   "absolute top-4 left-4 text-[11px] font-bold tracking-[0.1em] uppercase px-[13px] py-1.5 rounded-[2px]",
@@ -79,7 +111,7 @@ const units = [
               >
                 {u.tag}
               </span>
-            </div>
+            </a>
             <div class="pt-[26px] px-1 flex flex-col flex-1">
               <div class="flex items-baseline justify-between gap-3">
                 <h3 class="font-serif text-[32px] font-semibold leading-none">
@@ -97,10 +129,14 @@ const units = [
               </p>
               <p class="text-sm text-body mt-2">{u.foot}</p>
               <a
-                href="#register"
-                class="inline-flex items-center gap-2.5 font-semibold tracking-[0.14em] uppercase text-ink border-b border-accent transition-colors duration-200 hover:text-accent mt-5 text-[12.5px] pb-[5px] self-start"
+                href={waLink(
+                  `Hi Chloe, please send me the ${u.name} (${u.size} sqft) floor plan for ${project.name}.`,
+                )}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                class="inline-flex items-center gap-2.5 font-semibold tracking-[0.14em] uppercase text-ink border-b border-accent-hover transition-colors duration-200 hover:text-accent-hover mt-5 text-[12.5px] pb-[5px] self-start"
               >
-                Enquire
+                Request Floor Plan
                 <svg
                   width="14"
                   height="14"
@@ -125,7 +161,8 @@ const units = [
     <p
       class="text-[13px] text-muted mt-[clamp(32px,4vw,48px)] leading-[1.6] max-w-[70ch]"
     >
-      *Car park storage available for selected units. All layouts and images are
+      *Car park storage available for selected units. Built-up areas are
+      approximate and subject to final survey. All layouts and images are
       artist's impressions and subject to variation by the developer and
       relevant authorities.
     </p>

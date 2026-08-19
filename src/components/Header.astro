@@ -1,6 +1,13 @@
 ---
-
+import { project, identityLine } from "../config/site";
 ---
+
+<!-- Advertiser identity, stated before anything else on the page. -->
+<div
+  class="bg-forest text-[rgba(242,237,226,0.86)] text-center text-[11.5px] leading-[1.5] px-gutter py-2.5 tracking-[0.02em]"
+>
+  {identityLine}
+</div>
 
 <header class="bg-white/[0.94] backdrop-blur-[12px]">
   <nav
@@ -9,16 +16,16 @@
     <a href="#top" class="flex items-center gap-[13px] flex-none">
       <img
         src="/assets/pjpropertylogo.svg"
-        alt="PJ New Launch Private Lift"
+        alt={project.name}
         class="w-[42px] h-[42px] rounded-[8px] flex-none"
       />
       <span class="flex flex-col leading-none">
         <span class="font-serif text-[22px] font-semibold tracking-[0.14em]"
-          >PJ NEW LAUNCH</span
+          >{project.wordmarkTop}</span
         >
         <span
           class="text-[9.5px] tracking-[0.42em] text-muted font-semibold mt-1"
-          >PRIVATE LIFT</span
+          >{project.wordmarkBottom}</span
         >
       </span>
     </a>
@@ -31,19 +38,24 @@
         >Private Lift</a
       >
       <a
-        href="#living-hall"
+        href="#residences"
         class="opacity-[0.72] transition-opacity duration-200 hover:opacity-100"
-        >24 feet living hall</a
+        >Layouts</a
       >
       <a
-        href="#sky-semi-d"
+        href="#location"
         class="opacity-[0.72] transition-opacity duration-200 hover:opacity-100"
-        >Sky Semi-D</a
+        >Location</a
+      >
+      <a
+        href="#faq"
+        class="opacity-[0.72] transition-opacity duration-200 hover:opacity-100"
+        >FAQ</a
       >
       <a
         href="#register"
         class="border border-ink px-[26px] py-3 rounded-[40px] tracking-[0.12em] transition-colors duration-[250ms] hover:bg-ink hover:text-white"
-        >Register Interest</a
+        >Enquire</a
       >
     </div>
   </nav>

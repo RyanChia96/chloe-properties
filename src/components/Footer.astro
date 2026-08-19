@@ -1,5 +1,15 @@
 ---
+import {
+  project,
+  developer,
+  agency,
+  agent,
+  independenceNotice,
+  permitNotice,
+  materialsNotice,
+} from "../config/site";
 
+const year = new Date().getFullYear();
 ---
 
 <footer
@@ -9,28 +19,27 @@
     <div
       class="flex flex-col md:flex-row md:items-start md:justify-between gap-12 pb-[40px]"
     >
-      <div class="max-w-[44ch]">
+      <div class="max-w-[40ch]">
         <div class="flex items-center gap-[13px] flex-none mb-[22px]">
           <img
             src="/assets/pjpropertylogo.svg"
-            alt="PJ New Launch Private Lift"
+            alt={project.name}
             class="w-10 h-10 rounded-[8px] flex-none"
           />
           <span class="flex flex-col leading-none">
             <span
               class="font-serif text-[22px] font-semibold tracking-[0.14em] text-forest-text"
-              >PJ NEW LAUNCH</span
+              >{project.wordmarkTop}</span
             >
             <span
               class="text-[9px] tracking-[0.42em] text-[rgba(242,237,226,0.5)] font-semibold mt-1"
-              >PRIVATE LIFT</span
+              >{project.wordmarkBottom}</span
             >
           </span>
         </div>
         <p class="text-sm leading-[1.7] text-[rgba(223,217,204,0.72)]">
-          An exclusive, low-density collection of luxury residences in the heart
-          of Petaling Jaya, each with its own private lift lobby, by an
-          established Malaysian developer.
+          Pre-launch preview of {project.name} — a low-density, private-lift
+          development in Section 13, Petaling Jaya, by {developer.name}.
         </p>
       </div>
       <div>
@@ -52,8 +61,7 @@
           <li>
             <a
               href="#residences"
-              class="transition-colors duration-200 hover:text-accent"
-              >Residences</a
+              class="transition-colors duration-200 hover:text-accent">Layouts</a
             >
           </li>
           <li>
@@ -64,10 +72,14 @@
             >
           </li>
           <li>
+            <a href="#faq" class="transition-colors duration-200 hover:text-accent"
+              >FAQ</a
+            >
+          </li>
+          <li>
             <a
               href="#register"
-              class="transition-colors duration-200 hover:text-accent"
-              >Register Interest</a
+              class="transition-colors duration-200 hover:text-accent">Enquire</a
             >
           </li>
         </ul>
@@ -76,73 +88,101 @@
         <h4
           class="text-[11.5px] tracking-[0.16em] uppercase text-[rgba(242,237,226,0.5)] font-bold mb-[18px]"
         >
-          Get in Touch
+          Marketed by
         </h4>
         <ul
-          class="list-none flex flex-col gap-3 text-sm text-[rgba(223,217,204,0.82)]"
+          class="list-none flex flex-col gap-2 text-sm text-[rgba(223,217,204,0.82)] max-w-[34ch]"
         >
-          <li>Chloe Tan · REN 65782</li>
-          <li>
+          <li>{agent.name} · {agent.ren}</li>
+          <li class="text-[rgba(223,217,204,0.62)]">
+            {agency.name}{agency.companyNo ? ` (${agency.companyNo})` : ""}
+          </li>
+          <li class="text-[rgba(223,217,204,0.62)]">
+            Registered Estate Agency, BOVAEP {agency.licence}
+          </li>
+          <li class="text-[rgba(223,217,204,0.62)] leading-[1.6] pt-1">
+            {agency.address}
+          </li>
+          <li class="pt-1">
             <a
-              href="tel:+60169054333"
+              href={`tel:${agent.phoneHref}`}
               class="transition-colors duration-200 hover:text-accent"
-              >+60 16-905 4333</a
+              >{agent.phoneDisplay}</a
             >
           </li>
           <li>
             <a
-              href="mailto:jiaweii927@gmail.com"
+              href={`mailto:${agent.email}`}
               class="transition-colors duration-200 hover:text-accent"
-              >jiaweii927@gmail.com</a
+              >{agent.email}</a
+            >
+          </li>
+          <li class="pt-1">
+            <a
+              href="https://lpeph.gov.my/search-listing"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              class="underline underline-offset-2 text-[rgba(223,217,204,0.62)] transition-colors duration-200 hover:text-accent"
+              >Verify on the BOVAEP register</a
             >
           </li>
         </ul>
       </div>
-      <div>
-        <p
-          class="text-[11.5px] leading-[1.65] text-[rgba(223,217,204,0.5)] max-w-[70ch]"
+      <div class="max-w-[46ch]">
+        <h4
+          class="text-[11.5px] tracking-[0.16em] uppercase text-[rgba(242,237,226,0.5)] font-bold mb-[18px]"
         >
-          Disclaimer: The information contained in this material is illustrative
-          and conceptual. All renderings and images are artist's impressions
-          only. Specifications, layouts, facilities, dimensions and unit counts
-          are subject to change without notice and do not form part of any offer
-          or contract. The developer reserves the right to modify any aspect of
-          the development in compliance with regulatory framework directives.
+          Project governance
+        </h4>
+        <p
+          class="text-[11.5px] leading-[1.7] text-[rgba(223,217,204,0.55)] mb-3"
+        >
+          Developer: <span class="text-[rgba(223,217,204,0.8)]"
+            >{developer.name}</span
+          > ({developer.companyNo})<br />{permitNotice}
+        </p>
+        <p class="text-[11.5px] leading-[1.7] text-[rgba(223,217,204,0.5)]">
+          {materialsNotice}
         </p>
       </div>
     </div>
 
+    <!-- The single most important line on the page for ad review: who this
+         site is, and who it is not. -->
     <div
-      class="flex flex-wrap gap-3.5 justify-center md:justify-between items-center border-t border-[rgba(242,237,226,0.12)] text-[13px] text-[rgba(223,217,204,0.55)] py-[40px]"
+      class="border-t border-[rgba(242,237,226,0.12)] pt-8 pb-2 text-[12px] leading-[1.75] text-[rgba(223,217,204,0.62)] max-w-[92ch]"
     >
-      <div
-        class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-[rgba(223,217,204,0.55)] justify-center md:justify-start"
+      <span
+        class="text-[10.5px] tracking-[0.16em] uppercase font-bold text-[rgba(242,237,226,0.5)] block mb-2"
+        >Independent agency disclaimer</span
       >
-        <span class="inline-flex items-center gap-2 whitespace-nowrap">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="text-accent flex-none"
-            aria-hidden="true"
-          >
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            <path d="m9 12 2 2 4-4"></path>
-          </svg>
-          PDPA Compliant Secure Systems
-        </span>
-        <span>© 2026 PJ New Launch Private Lift. All rights reserved.</span>
+      {independenceNotice}
+    </div>
+
+    <div
+      class="flex flex-wrap gap-3.5 justify-center md:justify-between items-center border-t border-[rgba(242,237,226,0.12)] text-[13px] text-[rgba(223,217,204,0.55)] py-[32px] mt-6"
+    >
+      <span
+        >© {year} {agent.name}, {agency.name}. Not the official developer
+        website.</span
+      >
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <a
+          href="/about"
+          class="transition-colors duration-200 hover:text-accent underline"
+          >About</a
+        >
+        <a
+          href="/terms"
+          class="transition-colors duration-200 hover:text-accent underline"
+          >Terms of Use</a
+        >
+        <a
+          href="/privacy"
+          class="transition-colors duration-200 hover:text-accent underline"
+          >Privacy Policy</a
+        >
       </div>
-      <a
-        href="/privacy"
-        class="transition-colors duration-200 hover:text-accent underline text-center"
-        >Privacy Policy</a
-      >
     </div>
   </div>
 </footer>

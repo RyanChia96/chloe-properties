@@ -1,22 +1,28 @@
 ---
+import { project, developer, waLink } from "../config/site";
+
 const slides = [
   "/assets/hero-1.webp",
   "/assets/hero-2.webp",
   "/assets/hero-3.webp",
 ];
+
+const enquireHref = waLink(
+  `Hi Chloe, I'd like details on ${project.name} — floor plans, pricing and availability.`,
+);
 ---
 
 <section
   id="hero-media"
-  class="relative min-h-[92vh] flex items-center overflow-hidden px-gutter py-[clamp(56px,8vw,104px)] bg-[#20180f] text-[#f5eee1]"
+  class="relative min-h-[828px] flex items-center overflow-hidden px-gutter pt-[46px] pb-[60px] bg-hero"
 >
   {
     slides.map((src, i) => (
       <div
         data-slide
         class:list={[
-          "absolute inset-0 bg-center bg-cover bg-no-repeat transition-opacity duration-[1600ms] ease-linear",
-          i === 0 ? "opacity-100" : "opacity-0",
+          "absolute inset-0 bg-center bg-cover bg-no-repeat opacity-80 transition-opacity duration-[1600ms] ease-linear",
+          i === 0 ? "opacity-80" : "opacity-0",
         ]}
         style={`background-image:url('${src}')`}
       />
@@ -27,48 +33,53 @@ const slides = [
     style="background:linear-gradient(180deg, rgba(24,17,10,0.42) 0%, rgba(24,17,10,0.22) 38%, rgba(20,14,8,0.86) 100%);"
   >
   </div>
-  <span
-    class="absolute top-[clamp(26px,4vw,46px)] right-[clamp(20px,5vw,64px)] text-[11px] tracking-[0.22em] uppercase text-white/65 font-medium border border-white/[0.28] px-[13px] py-1.5 rounded-[2px] backdrop-blur-[3px]"
-  >
-    Artist's Impression
-  </span>
 
-  <div class="relative max-w-wrap mx-auto w-full">
-    <p
-      class="text-[12.5px] tracking-[0.3em] uppercase text-accent font-semibold mb-[clamp(22px,3vw,34px)]"
-    >
-      Something exclusive is coming · Petaling Jaya
-    </p>
-    <h1
-      class="font-serif font-semibold text-[clamp(30px,4.2vw,54px)] leading-[1.1] tracking-[-0.01em] max-w-[18ch] [text-wrap:balance]"
-    >
-      New Private-Lift Condo in the Heart of <span class="text-accent"
-        >Petaling Jaya</span
+  <div
+    class="relative max-w-wrap mx-auto w-full flex items-stretch justify-between gap-10"
+  >
+    <div class="flex flex-col gap-[26px] items-start self-center">
+      <span
+        class="inline-flex items-center px-4 py-2 rounded-full border border-muted bg-black/20 text-[12.5px] font-semibold tracking-[0.3em] uppercase text-paper backdrop-blur-[2px]"
       >
-    </h1>
-    <p
-      class="mt-[clamp(16px,2.2vw,24px)] font-serif italic font-medium text-[clamp(18px,2.1vw,27px)] leading-[1.3] tracking-[-0.005em] max-w-[22ch] text-white/[0.9]"
-    >
-      When arrival becomes an <span class="text-accent">experience.</span>
-    </p>
-    <p
-      class="mt-5 text-[clamp(16px,1.6vw,19px)] leading-[1.62] max-w-[52ch] text-white/[0.82] font-light"
-    >
-      A limited, low-density collection of luxury residences — a new condo in
-      the heart of Petaling Jaya (PJ) — where every home opens to its own
-      private lift lobby.
-    </p>
-    <div class="mt-[clamp(32px,4vw,44px)] flex flex-wrap gap-3.5">
-      <a
-        href="#register"
-        class="inline-block px-9 py-[18px] rounded-[40px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] bg-accent text-white hover:bg-accent-hover"
-        >Register Your Interest</a
+        Pre-Launch Preview
+      </span>
+      <h1
+        class="font-inter font-bold text-[clamp(30px,4.2vw,54px)] leading-[1.1] tracking-[-0.01em] max-w-[640px] text-[#f5eee1] [text-wrap:balance]"
       >
-      <a
-        href="#residences"
-        class="inline-block px-9 py-[18px] rounded-[40px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] bg-white/10 border border-white/40 text-[#f5eee1] backdrop-blur-[4px] hover:bg-white/[0.18]"
-        >Explore Residences</a
+        {project.name} — Private-Lift Living in <span class="text-accent-hover"
+          >Section 13, PJ</span
+        >
+      </h1>
+      <p
+        class="font-inter font-medium text-[clamp(16px,1.6vw,19px)] leading-[1.62] max-w-[600px] text-white/[0.82]"
       >
+        A low-density collection of residences by {developer.name}, facing Plaza
+        33 in the heart of Petaling Jaya — where every home opens to its own
+        private lift lobby. Now in pre-launch preview.
+      </p>
+      <div class="mt-2 flex flex-wrap gap-3.5">
+        <a
+          href={enquireHref}
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          class="inline-block px-9 py-[18px] rounded-[40px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] bg-accent-hover text-hero hover:bg-accent"
+          >Enquire on WhatsApp</a
+        >
+        <a
+          href="#residences"
+          class="inline-block px-9 py-[18px] rounded-[40px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] border border-white text-white backdrop-blur-[4px] hover:bg-white/[0.14]"
+          >Explore Layouts</a
+        >
+      </div>
+    </div>
+
+    <!-- Disclosure sits with the render it qualifies, bottom-right of the frame. -->
+    <div class="hidden md:flex flex-col justify-end flex-none">
+      <span
+        class="text-[11px] tracking-[0.22em] uppercase text-white/65 font-semibold border border-white/[0.28] px-[13px] py-1.5 rounded-[2px] backdrop-blur-[3px] whitespace-nowrap"
+      >
+        Artist's Impression
+      </span>
     </div>
   </div>
 </section>
@@ -82,9 +93,9 @@ const slides = [
     if (slides.length > 1) {
       let index = 0;
       setInterval(() => {
-        slides[index].classList.replace("opacity-100", "opacity-0");
+        slides[index].classList.replace("opacity-80", "opacity-0");
         index = (index + 1) % slides.length;
-        slides[index].classList.replace("opacity-0", "opacity-100");
+        slides[index].classList.replace("opacity-0", "opacity-80");
       }, 5000);
     }
   }

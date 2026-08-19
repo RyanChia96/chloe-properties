@@ -1,6 +1,8 @@
 ---
+// Sits inside the Private Lift section in the redesign, so it carries no
+// section padding or rules of its own.
 const facts = [
-  { num: "3", label: "Exclusive layouts" },
+  { num: "3", label: "Layout types" },
   {
     num: "1,165–1,880",
     label: "Built-up (sqft)",
@@ -11,26 +13,24 @@ const facts = [
 ];
 ---
 
-<section class="px-gutter">
-  <div
-    class="max-w-wrap mx-auto border-t border-b border-line py-[clamp(40px,5vw,64px)] grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-[clamp(28px,4vw,48px)]"
-  >
-    {
-      facts.map((fact) => (
-        <div>
-          <div
-            class:list={[
-              "font-serif font-medium leading-none whitespace-nowrap",
-              fact.size ?? "text-[clamp(32px,3.6vw,46px)]",
-            ]}
-          >
-            {fact.num}
-          </div>
-          <div class="text-[13.5px] tracking-[0.06em] text-muted-2 mt-3">
-            {fact.label}
-          </div>
+<div
+  class="w-full grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-12"
+>
+  {
+    facts.map((fact) => (
+      <div>
+        <div
+          class:list={[
+            "font-serif font-medium leading-none whitespace-nowrap",
+            fact.size ?? "text-[clamp(32px,3.6vw,46px)]",
+          ]}
+        >
+          {fact.num}
         </div>
-      ))
-    }
-  </div>
-</section>
+        <div class="text-[13.5px] tracking-[0.06em] text-muted-2 mt-3">
+          {fact.label}
+        </div>
+      </div>
+    ))
+  }
+</div>

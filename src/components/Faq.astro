@@ -1,0 +1,75 @@
+---
+import { project, developer, agency, agent } from "../config/site";
+
+const faqs = [
+  {
+    q: `What is ${project.name}?`,
+    a: `${project.name} is a low-density residential development in Section 13, Petaling Jaya, by ${developer.name}. Every home is served by its own private lift lobby. The project is currently in its pre-launch registration phase.`,
+  },
+  {
+    q: "Where exactly is the development located?",
+    a: "The site sits along Jalan Kemajuan and Jalan 13/1 in Section 13, Petaling Jaya, facing Plaza 33 — within walking distance of Jaya Shopping Centre and a short drive from Universiti Malaya and the Federal Highway.",
+  },
+  {
+    q: "What layouts and sizes are available?",
+    a: "Three layouts are offered: Type A at 1,880 sqft (4 bedrooms, 4 bathrooms), Type B1 at 1,574 sqft (3 bedrooms, 4 bathrooms) and Type C1 at 1,165 sqft (3 bedrooms, 2 bathrooms), with two to three carparks depending on type. Built-up areas are approximate and subject to final survey.",
+  },
+  {
+    q: "Does every unit really have a private lift?",
+    a: "Yes. Each residence opens onto its own private lift lobby rather than a shared corridor — a foyer 2m wide for Types A and B, and 1.8m for Type C.",
+  },
+  {
+    q: "Is pricing available?",
+    a: "The developer has not released a public price list for this phase. We can share indicative pricing on enquiry, but any figure quoted before launch is indicative only and is not binding until confirmed by the developer in the Sale and Purchase Agreement.",
+  },
+  {
+    q: "When is the official launch?",
+    a: "The project is in a pre-launch registration phase. The developer has not published a confirmed public launch date — registered enquirers will be notified as soon as the launch details, floor plans and price list are officially released.",
+  },
+  {
+    q: "Is this the developer's official website?",
+    a: `No. This is an independent marketing website operated by ${agent.name} (${agent.ren}) of ${agency.name}, a registered estate agency (BOVAEP ${agency.licence}). It is not operated by or on behalf of ${developer.name}. All information here is for general reference and should be verified with the developer before any purchase decision.`,
+  },
+  {
+    q: "How is my personal data handled?",
+    a: "This website has no enquiry form and does not collect your details on-page. When you contact us on WhatsApp, by phone or by email, we use those details only to respond to your enquiry about this development, in accordance with Malaysia's Personal Data Protection Act 2010. You can ask us to stop contacting you at any time.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section id="faq" class="py-20 px-gutter bg-paper">
+  <div class="max-w-wrap mx-auto">
+    <div class="max-w-[880px] mx-auto border-t border-line">
+      {
+        faqs.map((f) => (
+          <details class="group border-b border-line">
+            <summary class="flex items-start justify-between gap-6 cursor-pointer list-none py-[22px] font-serif text-[clamp(17px,1.8vw,20px)] font-semibold text-ink [&::-webkit-details-marker]:hidden">
+              {f.q}
+              <span
+                class="text-accent text-[24px] leading-none font-sans font-light flex-none mt-0.5 transition-transform duration-200 group-open:rotate-45"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+            <p class="text-[15px] leading-[1.75] text-body font-light pb-[26px] max-w-[70ch]">
+              {f.a}
+            </p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

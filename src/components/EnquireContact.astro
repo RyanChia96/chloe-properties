@@ -1,0 +1,142 @@
+---
+import { project, agency, agent, waLink } from "../config/site";
+
+const enquiries = [
+  {
+    label: "Floor plans & layouts",
+    msg: `Hi Chloe, please send me the floor plans for ${project.name}.`,
+  },
+  {
+    label: "Indicative pricing",
+    msg: `Hi Chloe, could you share indicative pricing for ${project.name}?`,
+  },
+  {
+    label: "Availability & launch date",
+    msg: `Hi Chloe, what is the availability and launch timeline for ${project.name}?`,
+  },
+];
+---
+
+<section id="register" class="py-20 px-gutter">
+  <div class="max-w-wrap mx-auto">
+    <div
+      class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[clamp(40px,5vw,72px)] items-start"
+    >
+      <div>
+        <h3
+          class="font-serif text-[clamp(24px,2.6vw,32px)] font-semibold mb-[clamp(20px,2.5vw,28px)]"
+        >
+          Your <span class="text-accent-hover">contact</span>
+        </h3>
+        <div class="p-6 bg-paper rounded-[6px]">
+          <div class="flex items-center gap-[18px]">
+            <span
+              class="w-[58px] h-[58px] rounded-full bg-forest text-accent flex items-center justify-center flex-none font-serif text-[25px] font-semibold"
+              >CT</span
+            >
+            <div>
+              <div class="font-serif text-[22px] font-semibold leading-[1.1]">
+                {agent.name}
+              </div>
+              <div class="text-[13px] text-muted mt-[3px]">
+                {agent.ren} · {agent.role}
+              </div>
+            </div>
+          </div>
+
+          <dl
+            class="mt-5 pt-5 border-t border-line text-[13.5px] leading-[1.65] flex flex-col gap-3"
+          >
+            <div>
+              <dt class="text-muted text-[11.5px] tracking-[0.1em] uppercase">
+                Agency
+              </dt>
+              <dd class="text-ink font-medium">
+                {agency.name} · Registered Estate Agency, BOVAEP {
+                  agency.licence
+                }
+              </dd>
+            </div>
+            <div>
+              <dt class="text-muted text-[11.5px] tracking-[0.1em] uppercase">
+                Office
+              </dt>
+              <dd class="text-body">{agency.address}</dd>
+            </div>
+            <div>
+              <dt class="text-muted text-[11.5px] tracking-[0.1em] uppercase">
+                Reach us
+              </dt>
+              <dd class="flex flex-wrap gap-x-4 gap-y-1.5 mt-0.5">
+                <a
+                  href={`tel:${agent.phoneHref}`}
+                  class="text-[#4a473d] font-medium transition-colors duration-200 hover:text-accent-hover"
+                  >{agent.phoneDisplay}</a
+                >
+                <a
+                  href={`mailto:${agent.email}`}
+                  class="text-[#4a473d] font-medium transition-colors duration-200 hover:text-accent-hover"
+                  >{agent.email}</a
+                >
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div>
+        <h3
+          class="font-serif text-[clamp(24px,2.6vw,32px)] font-semibold mb-[clamp(20px,2.5vw,28px)]"
+        >
+          What would you like to <span class="text-accent-hover">know?</span>
+        </h3>
+        <div class="flex flex-col gap-3">
+          {
+            enquiries.map((e) => (
+              <a
+                href={waLink(e.msg)}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                class="flex items-center justify-between gap-4 border border-line-input rounded-[8px] px-6 py-[18px] text-[14.5px] font-medium text-ink transition-colors duration-200 hover:border-accent-hover hover:bg-paper"
+              >
+                {e.label}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-accent-hover flex-none"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14" />
+                  <path d="M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            ))
+          }
+          <a
+            href={waLink(
+              `Hi Chloe, I'd like to register my interest in ${project.name}.`,
+            )}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            class="mt-2.5 text-center bg-accent-hover text-hero rounded-[40px] p-[17px] text-[13px] font-semibold tracking-[0.14em] uppercase transition-colors duration-[250ms] hover:bg-accent"
+            >Register Interest on WhatsApp</a
+          >
+        </div>
+        <p class="text-[11.5px] text-muted leading-[1.55] mt-4">
+          This website does not collect your details through a form. When you
+          message us on WhatsApp, you consent to being contacted by {agent.name}
+          ({agent.ren}) of {agency.name} regarding {project.name}. See our <a
+            href="/privacy"
+            class="underline underline-offset-2 hover:text-accent-hover">Privacy Policy</a
+          > — you may ask us to stop contacting you at any time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
