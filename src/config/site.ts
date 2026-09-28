@@ -38,9 +38,9 @@ export const agent = {
   name: "Chloe Tan",
   ren: "REN 65782",
   role: "Registered Real Estate Negotiator",
-  phoneDisplay: "+60 16-905 4333",
-  phoneHref: "+60169054333",
-  whatsapp: "60169054333",
+  phoneDisplay: "+60 13-402 2862",
+  phoneHref: "+60134022862",
+  whatsapp: "60134022862",
   email: "jiaweii927@gmail.com",
 };
 
