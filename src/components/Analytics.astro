@@ -1,0 +1,57 @@
+---
+// GA4 plus lead tracking. The site has no form, so a "conversion" is a click
+// on a WhatsApp, phone or email link. Each click is sent to GA4 as its own
+// event (mark them as key events in GA4 Admin), tagged with the page section
+// it came from so you can see which CTA actually produces enquiries.
+import { site } from "../config/site";
+
+const id = site.ga4Id;
+---
+
+{
+  id && (
+    <>
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
+      />
+      <script is:inline define:vars={{ id }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        gtag("js", new Date());
+        gtag("config", id);
+
+        document.addEventListener("click", (e) => {
+          const link = e.target.closest && e.target.closest("a[href]");
+          if (!link) return;
+          const href = link.getAttribute("href");
+          let event = null;
+          if (/^https:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)) {
+            event = "whatsapp_click";
+          } else if (href.startsWith("tel:")) {
+            event = "phone_click";
+          } else if (href.startsWith("mailto:")) {
+            event = "email_click";
+          }
+          if (!event) return;
+          const area = link.closest("section[id], header, footer");
+          gtag("event", event, {
+            link_location: area
+              ? area.id || area.tagName.toLowerCase()
+              : "floating_button",
+            link_text: (
+              link.textContent.trim() ||
+              link.getAttribute("aria-label") ||
+              ""
+            ).slice(0, 100),
+            transport_type: "beacon",
+          });
+        });
+      </script>
+    </>
+  )
+}

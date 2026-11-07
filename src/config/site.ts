@@ -46,6 +46,8 @@ export const agent = {
 
 export const site = {
   url: "https://www.pjprelaunchprivatelift.com.my",
+  // GA4 Measurement ID ("G-XXXXXXXXXX"). Leave "" to load no Google tag at all.
+  ga4Id: "G-Y9TZ35WVQD",
 };
 
 /** One-line attribution used in the header bar. */
