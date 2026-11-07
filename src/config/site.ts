@@ -40,7 +40,7 @@ export const agent = {
   role: "Registered Real Estate Negotiator",
   phoneDisplay: "+60 13-402 2862",
   phoneHref: "+60134022862",
-  whatsapp: "60134022862",
+  whatsapp: "60169054333",
   email: "jiaweii927@gmail.com",
 };
 
